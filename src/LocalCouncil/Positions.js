@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Link
 } from 'react-router-dom';
+import './Positions.css';
 
 class Positions extends Component {
   renderPosition(position) {
@@ -15,7 +16,7 @@ class Positions extends Component {
 
   render() {
     return (
-      <div>{this.props.positions.map(this.renderPosition)}</div>
+      <div className="Positions">{this.props.positions.map(this.renderPosition)}</div>
     );
   }
 }

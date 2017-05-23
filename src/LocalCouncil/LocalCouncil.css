@@ -1,3 +1,9 @@
 .LocalCouncil {
     color: blue;
 }
+
+@media (min-width: 600px) {
+  .LocalCouncil {
+    display: flex;
+  }
+}

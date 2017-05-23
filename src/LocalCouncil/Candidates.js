@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './Candidates.css';
 
 class Candidates extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Candidates extends Component {
 
   render() {
     return (
-      <div>{this.props.candidates.map(this.renderCandidates)}</div>
+      <div className="Candidates">{this.props.candidates.map(this.renderCandidates)}</div>
     );
   }
 }
