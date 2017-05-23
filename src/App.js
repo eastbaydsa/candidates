@@ -15,7 +15,7 @@ class App extends Component {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/local-council">East Bay DSA Local Council Elections</Link></li>
-              <li><Link to="/national-convention">DSA National Convention Delegates</Link></li>
+              {/*<li><Link to="/national-convention">DSA National Convention Delegates</Link></li>*/}
             </ul>
 
             <hr/>

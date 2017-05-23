@@ -6,7 +6,23 @@ router.get('/local-council', function(req, res, next) {
   res.json({
     positions: [
       {
+        title: 'Co-chair',
+        slug: 'co-chair',
+        candidates: []
+      },
+      {
+        title: 'Vice Chair',
+        slug: 'vice-chair',
+        candidates: []
+      },
+      {
+        title: 'Treasurer',
+        slug: 'treasurer',
+        candidates: []
+      },
+      {
         title: 'Secretary',
+        slug: 'secretary',
         candidates: [
           {
             name: 'Benjamin Fife',
@@ -26,6 +42,21 @@ router.get('/local-council', function(req, res, next) {
             nominiation5Text: ''
           }
         ]
+      },
+      {
+        title: 'Internal Organizer',
+        slug: 'internal-organizer',
+        candidates: []
+      },
+      {
+        title: 'External Organizer',
+        slug: 'external-organizer',
+        candidates: []
+      },
+      {
+        title: 'At-Large',
+        slug: 'at-large',
+        candidates: []
       }
     ]
   });
