@@ -14,10 +14,8 @@ class Positions extends Component {
   }
 
   render() {
-    const positions = this.context.positionStore.all();
-    if (positions.length === 0) { return null }
     return (
-      <div>{positions.map(this.renderPosition)}</div>
+      <div>{this.props.positions.map(this.renderPosition)}</div>
     );
   }
 }

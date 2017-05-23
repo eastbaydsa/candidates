@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
+  Link,
   Route,
-  Link
+  Switch
 } from 'react-router-dom';
 import Home from './Home/Home.js';
 import LocalCouncil from './LocalCouncil/LocalCouncil.js';
@@ -21,7 +22,11 @@ class App extends Component {
             <hr/>
 
             <Route exact path="/" component={Home}/>
-            <Route path="/local-council" component={LocalCouncil}/>
+            <Switch>
+              <Route path="/local-council/:position/:candidate" component={LocalCouncil}/>
+              <Route path="/local-council/:position" component={LocalCouncil}/>
+              <Route path="/local-council" component={LocalCouncil}/>
+            </Switch>
             {/*<Route path="/national-convention" component={NationalConvention}/>*/}
           </div>
         </Router>

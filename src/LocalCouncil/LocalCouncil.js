@@ -1,67 +1,43 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Positions from './Positions.js';
-import LocalCouncilPosition from './LocalCouncilPosition.js';
-import LocalCouncilCandidate from './LocalCouncilCandidate.js';
-import PositionStore from '../stores/PositionStore.js';
+import Candidates from './Candidates.js';
+import Candidate from './Candidate.js';
+import LocalCouncilElectionStore from '../stores/LocalCouncilElectionStore.js';
 import './LocalCouncil.css';
 
 class LocalCouncil extends Component {
   constructor(props) {
     super(props);
-    this.state = { positionStore: new PositionStore() };
-    ['renderPosition', 'renderCandidate'].forEach((fn) => { this[fn] = this[fn].bind(this); });
-  }
-
-  getChildContext() {
-    return {
-      positionStore: this.state.positionStore
-    }
+    this.state = { electionStore: new LocalCouncilElectionStore() };
   }
 
   componentDidMount() {
     fetch('/api/elections/local-council').then((response) => {
       response.json().then((data) => {
         this.setState({
-          positionStore: new PositionStore(data)
+          electionStore: new LocalCouncilElectionStore(data)
         });
       });
     });
   }
 
-  renderPosition(position) {
-    return (
-      <div key={position.slug}>
-        <Link to={`/local-council/${position.slug}`}>{position.title}</Link>
-        {position.candidates.map(this.renderCandidate)}
-      </div>
-    )
-  }
-
-  renderCandidate(candidate) {
-    // return <LocalCouncilCandidate {...candidate} key={candidate.name} />
-  }
-
   render() {
+    const position = this.state.electionStore.find(this.props.match.params.position);
+    const candidate = this.state.electionStore.candidate(this.props.match.params.position, this.props.match.params.candidate);
     return (
-      <Router>
-        <div>
-          <Route path="/local-council" component={Positions} />
-          <Route path="/local-council/:position" component={LocalCouncilPosition} />
-          <Route path="/local-council/:position/:candidate" component={LocalCouncilCandidate} />
-        </div>
-      </Router>
+      <div>
+        <Positions positions={this.state.electionStore.all()}/>
+        {position ? <Candidates position={position} candidates={this.state.electionStore.candidates(position.slug)}/> : null}
+        {candidate ? <Candidate position={position} candidate={this.state.electionStore.candidate(position.slug, candidate.slug)}/> : null}
+      </div>
     );
   }
 }
 
 LocalCouncil.childContextTypes = {
-  positionStore: PropTypes.object
+  electionStore: PropTypes.object
 }
 
 export default LocalCouncil;
