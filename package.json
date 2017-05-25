@@ -13,6 +13,7 @@
     "react-scripts": "1.0.5"
   },
   "scripts": {
+    "preinstall": "(cd server && npm install)",
     "start": "concurrently 'cd server && npm start' 'react-scripts start'",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
