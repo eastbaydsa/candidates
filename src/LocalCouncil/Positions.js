@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {
-  Link
-} from 'react-router-dom';
+import Position from './Position';
 import './Positions.css';
 
 class Positions extends Component {
-  renderPosition(position) {
-    return (
-      <div key={position.slug}>
-        <Link to={`/local-council/${position.slug}`}>{position.title}</Link>
-      </div>
-    )
+  renderPositionLinks() {
+    return this.props.positions.map(position => {
+      return (
+        <div key={position.slug}>
+          <a href={`/local-council/${position.slug}`}>{position.title}</a>
+        </div>
+      )
+    });
+  }
+
+  renderPositionDetails() {
+    return this.props.positions.map(position => {
+      return <Position key={position.slug} {...position} />
+    });
   }
 
   render() {
     return (
-      <div className="Positions">{this.props.positions.map(this.renderPosition)}</div>
+      <div className="Positions">
+        <div className="Positions__all">
+          {this.renderPositionLinks()}
+        </div>
+        {this.renderPositionDetails()}
+      </div>
     );
   }
 }
-
-Positions.contextTypes = {
-  positionStore: PropTypes.object
-};
 
 export default Positions;
