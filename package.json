@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "faker": "^4.1.0",
+    "jsonfile": "^3.0.0",
     "lorem-ipsum": "^1.0.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
@@ -13,8 +14,7 @@
     "react-scripts": "1.0.5"
   },
   "scripts": {
-    "preinstall": "(cd server && npm install)",
-    "start": "concurrently 'cd server && npm start' 'react-scripts start'",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

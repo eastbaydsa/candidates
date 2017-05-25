@@ -19,7 +19,7 @@ class Election extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/fixtures').then((response) => {
+    fetch('/fixtures.json').then((response) => {
       response.json().then((data) => {
         this.setState({
           localCouncilElectionStore: new LocalCouncilElectionStore(data.localCouncil),
