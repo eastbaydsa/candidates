@@ -19,10 +19,11 @@ class Election extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/elections/local-council').then((response) => {
+    fetch('/api/fixtures').then((response) => {
       response.json().then((data) => {
         this.setState({
-          localCouncilElectionStore: new LocalCouncilElectionStore(data)
+          localCouncilElectionStore: new LocalCouncilElectionStore(data.localCouncil),
+          nationalConventionCandidates: data.nationalConvention.candidates
         });
       });
     });

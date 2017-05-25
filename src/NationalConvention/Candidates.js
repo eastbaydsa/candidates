@@ -4,7 +4,7 @@ import Candidate from './Candidate';
 class Candidates extends Component {
   renderCandidateDetails() {
     return this.props.candidates.map(candidate => {
-      return <Candidate key={candidate.slug} {...candidate} />
+      return <Candidate key={candidate.name} {...candidate} />
     });
   }
 

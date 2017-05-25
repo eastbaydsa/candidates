@@ -5,7 +5,7 @@ class Position extends Component {
   renderCandidateLinks() {
     return this.props.candidates.map(candidate => {
       return (
-        <div key={candidate.slug}>
+        <div key={candidate.name}>
           <a href={`/local-council/${candidate.slug}`}>{candidate.name}</a>
         </div>
       );
@@ -14,7 +14,7 @@ class Position extends Component {
 
   renderCandidateDetails() {
     return this.props.candidates.map(candidate => {
-      return <Candidate key={candidate.slug} {...candidate} />
+      return <Candidate key={candidate.name} {...candidate} />
     });
   }
 
