@@ -7,7 +7,7 @@ class LocalCouncilElectionStore {
     return this.data.positions.find(position => position.slug === slug);
   }
 
-  all() {
+  positions() {
     return this.data.positions;
   }
 
