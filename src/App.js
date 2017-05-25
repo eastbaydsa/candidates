@@ -7,12 +7,13 @@ import {
 } from 'react-router-dom';
 import Home from './Home/Home.js';
 import LocalCouncil from './LocalCouncil/LocalCouncil.js';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
         <Router>
-          <div>
+          <div className="App">
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/local-council">East Bay DSA Local Council Elections</Link></li>

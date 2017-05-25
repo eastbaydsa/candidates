@@ -28,9 +28,15 @@ class LocalCouncil extends Component {
     const candidate = this.state.electionStore.candidate(this.props.match.params.position, this.props.match.params.candidate);
     return (
       <div className="LocalCouncil">
-        <Positions positions={this.state.electionStore.all()}/>
-        {position ? <Candidates position={position} candidates={this.state.electionStore.candidates(position.slug)}/> : null}
-        {candidate ? <Candidate position={position} candidate={this.state.electionStore.candidate(position.slug, candidate.slug)}/> : null}
+        <div className="LocalCouncil__positions">
+          <Positions positions={this.state.electionStore.all()}/>
+        </div>
+        <div className="LocalCouncil__candidates">
+          {position ? <Candidates position={position} candidates={this.state.electionStore.candidates(position.slug)}/> : null}
+        </div>
+        <div className="LocalCouncil__candidate">
+          {candidate ? <Candidate position={position} candidate={this.state.electionStore.candidate(position.slug, candidate.slug)}/> : null}
+        </div>
       </div>
     );
   }
