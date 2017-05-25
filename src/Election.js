@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
-import LocalCouncilPositions from './LocalCouncil/Positions.js';
+
 import LocalCouncilIntro from './LocalCouncil/Intro.js';
+import LocalCouncilPositions from './LocalCouncil/Positions.js';
 import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
+
+import NationalConventionIntro from './NationalConvention/Intro.js';
+import NationalConventionCandidates from './NationalConvention/Candidates.js';
+
 import './Election.css';
 
 class Election extends Component {
   constructor(props) {
     super(props);
-    this.state = { electionStore: new LocalCouncilElectionStore() };
+    this.state = {
+      localCouncilElectionStore: new LocalCouncilElectionStore(),
+      nationalConventionCandidates: []
+    };
   }
 
   componentDidMount() {
     fetch('/api/elections/local-council').then((response) => {
       response.json().then((data) => {
         this.setState({
-          electionStore: new LocalCouncilElectionStore(data)
+          localCouncilElectionStore: new LocalCouncilElectionStore(data)
         });
       });
     });
@@ -24,7 +32,9 @@ class Election extends Component {
     return (
       <div>
         <LocalCouncilIntro />
-        <LocalCouncilPositions positions={this.state.electionStore.positions()}/>
+        <LocalCouncilPositions positions={this.state.localCouncilElectionStore.positions()} />
+        <NationalConventionIntro />
+        <NationalConventionCandidates candidates={this.state.nationalConventionCandidates} />
       </div>
     );
   }
