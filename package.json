@@ -6,6 +6,7 @@
     "faker": "^4.1.0",
     "glamor": "^2.20.25",
     "glamorous": "^3.17.0",
+    "google-spreadsheet-to-json": "^1.0.0",
     "jsonfile": "^3.0.0",
     "lorem-ipsum": "^1.0.4",
     "react": "^15.5.4",

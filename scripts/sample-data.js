@@ -1,6 +1,7 @@
 const jsonfile = require('jsonfile');
 var faker = require('faker');
 var loremIpsum = require('lorem-ipsum');
+var gsjson = require('google-spreadsheet-to-json');
 
 function randomBetween(start, end) {
   return Math.floor(Math.random() * end) + start; 
@@ -25,7 +26,42 @@ function candidate() {
   }
 }
 
-const data = {
+function candidatesFromGS(position, GSdata) {
+    var candidates = [];
+    
+    for(var i in GSdata) {    
+        var item = GSdata[i];   
+        if (item["whichPositionAreYouRunningFor?"] == position) {
+            candidates.push({ 
+                name: item["firstAndLastName"],
+                imageUrl: faker.image.avatar(),
+                involvement: item["pleaseDescribeYourInvolvementInEastBayDsa."],
+                qualifications: item["whyAreYouQualifiedForThisSpecificRole?"],
+                goals: item["whatDoYouHopeToAccomplishForTheChapterIfElectedToThisRole?"],
+                nominiation1Name: fakeName(),
+                nominiation2Name: fakeName(),
+                nominiation3Name: fakeName(),
+                nominiation4Name: fakeName(),
+                nominiation5Name: fakeName()
+
+            });
+        }
+    }
+
+    return candidates
+}
+
+var gsCandidateJson;
+// TODO: use auth? I made the sheet public for now
+gsjson({
+        spreadsheetId: '1F5absQLBTy9rrGAVJW7zIaifXAivqx7slD_0I1LRDqg',
+})
+.then(function(result) {
+        console.log(result.length);
+        console.log(result);
+        gsCandidateJson = result;
+
+  const data = {
   localCouncil: {
     positions: [
       {
@@ -39,7 +75,7 @@ const data = {
   <li>c. At least one Co-Chair must not identify as both White and Cis-Male.</li>
 </ul>
         `,
-        candidates: Array(3).fill().map(candidate)
+        candidates: candidatesFromGS("Co-chair", gsCandidateJson) 
       },
       {
         title: 'Vice Chair',
@@ -47,7 +83,7 @@ const data = {
         description: `
 <p>The Vice Chair is responsible for assisting the Co-Chairs with all of their duties. If both Co-Chairs are unable to perform their duties, the Vice Chair shall perform all duties and assume all responsibilities of the Co-Chairs until such a time as one or both Co-Chairs are able to resume their posts.</p>
         `,
-        candidates: Array(2).fill().map(candidate)
+        candidates: candidatesFromGS("Vice Chair", gsCandidateJson) 
       },
       {
         title: 'Secretary',
@@ -59,7 +95,7 @@ const data = {
   <li>b. The Secretary will assume the responsibilities of one of the Co-Chairs, if both Co-Chairs and the Vice Chair is unable to do so.</li>
 </ul>
         `,
-        candidates: Array(1).fill().map(candidate)
+        candidates: candidatesFromGS("Secretary", gsCandidateJson) 
       },
       {
         title: 'Treasurer',
@@ -67,7 +103,7 @@ const data = {
         description: `
 <p>The Treasurer will be responsible for administration of funds, budget, and financial organization of the Local, including overseeing fundraising activities for the Local. The Treasurer will report to the Local Council on the financial status of the organization at each Local Council Meeting. The Treasurer will maintain transparent and open financial reports available to the entire membership upon request by an officer of the Local Council.</p>
         `,
-        candidates: Array(2).fill().map(candidate)
+        candidates: candidatesFromGS("Treasurer", gsCandidateJson)
       },
       {
         title: 'Internal Organizers',
@@ -75,7 +111,7 @@ const data = {
         description: `
 <p>Internal Organizers will jointly oversee the Internal Organizing Committee (see Article VI), which is responsible for fostering a lively participatory and democratic culture within the Local through the development, education, mobilization, and recruitment of members. The Internal Organizing Committee is also charged with organizing General Meetings, Informational Meetings, and social, educational, and fundraising events. Under the direction of the Local Council, the Internal Organizing Committee shall develop and oversee a program of socialist cadre development that includes skills training and political education; and a system of Mobilizers (similar to union shop stewards) who will act as an active conduit of information and engagement between the General Membership and the Local Council.</p>
         `,
-        candidates: Array(7).fill().map(candidate)
+        candidates: candidatesFromGS("Internal Organizer", gsCandidateJson) 
       },
       {
         title: 'External Organizers',
@@ -83,7 +119,7 @@ const data = {
         description: `
 <p>External Organizers will jointly oversee the External Organizing Committee (see Article VI), which will lead the Local’s fight for a socialist political agenda in the East Bay and beyond. Under the direction of the Local Council and in order to realize the policies, priorities and campaigns set forth by the General Membership, the External Organizing Committee shall manage or execute all of the Local’s issue and electoral campaigns, direct actions, rallies, and other activities expressly targeted at the general public for political purposes.</p>
         `,
-        candidates: Array(4).fill().map(candidate)
+        candidates: candidatesFromGS("External Organizer", gsCandidateJson) 
       },
       {
         title: 'At-Large Local Council Members',
@@ -91,7 +127,7 @@ const data = {
         description: `
 <p>At-Large Local Council Members will participate in Local Council decision-making, and are responsible for attending all relevant meetings and reading all relevant documents. At-Large Local Council members are also tasked with representing the views of the membership that elected them as well as helping to advance the goals of the Local generally.</p>
         `,
-        candidates: Array(5).fill().map(candidate)
+        candidates: candidatesFromGS("At Large Member of Local Council", gsCandidateJson) 
       }
     ]
   },
@@ -101,3 +137,6 @@ const data = {
 }
 
 jsonfile.writeFileSync('./public/fixtures.json', data);
+
+})
+
