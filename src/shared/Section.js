@@ -26,7 +26,11 @@ const tiers = [
 class Section extends Component {
   render() {
     const rules = {
-      padding: '60px 0'
+      padding: '60px 0',
+      minHeight: '60vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
     };
 
     const tierRules = tiers[this.props.tier - 1];
