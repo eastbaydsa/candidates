@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Position from './Position';
-import './Positions.css';
+import Section from '../shared/Section';
 
 class Positions extends Component {
   renderPositionLinks() {
@@ -21,10 +21,10 @@ class Positions extends Component {
 
   render() {
     return (
-      <div className="Positions">
-        <div className="Positions__all">
+      <div>
+        <Section tier={2}>
           {this.renderPositionLinks()}
-        </div>
+        </Section>
         {this.renderPositionDetails()}
       </div>
     );

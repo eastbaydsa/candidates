@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Candidate from './Candidate';
+import Section from '../shared/Section';
 
 class Candidates extends Component {
   renderCandidateDetails() {
@@ -10,11 +11,9 @@ class Candidates extends Component {
 
   render() {
     return (
-      <div className="Candidates">
-        <div className="candidates">
-          {this.renderCandidateDetails()}
-        </div>
-      </div>
+      <Section tier={4}>
+        {this.renderCandidateDetails()}
+      </Section>
     );
   }
 }
