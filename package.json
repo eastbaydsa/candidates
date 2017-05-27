@@ -23,9 +23,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "bootstrap": "yarn install && (cd server && yarn install)",
+    "bootstrap": "yarn install",
     "sample-data": "node scripts/sample-data",
-    "deploy": "npm run build && ns build"
+    "deploy": "npm run build && ns build --public"
   },
   "proxy": "http://localhost:3001",
   "main": "index.js",
