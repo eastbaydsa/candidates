@@ -20,40 +20,33 @@ function candidatesFromGS(position, GSdata) {
                 nominiation3Name: fakeData.name(),
                 nominiation4Name: fakeData.name(),
                 nominiation5Name: fakeData.name()
-
             });
         }
     }
 
-    return candidates
+    return candidates;
 }
 
-var gsCandidateJson;
-// TODO: use auth? I made the sheet public for now
 gsjson({
-  spreadsheetId: '1F5absQLBTy9rrGAVJW7zIaifXAivqx7slD_0I1LRDqg',
-})
-.then(function(result) {
-    console.log(result.length);
-    console.log(result);
+  spreadsheetId: process.env.LOCAL_COUNCIL_ELECTION_SHEET_ID
+}).then(function(gsCandidateJson) {
+  console.log(gsCandidateJson.length);
+  console.log(gsCandidateJson);
 
-    gsCandidateJson = result;
+  const data = electionData({
+    localCouncil: {
+      "Co-chair": candidatesFromGS("Co-chair", gsCandidateJson),
+      "Vice Chair": candidatesFromGS("Vice Chair", gsCandidateJson),
+      "Secretary": candidatesFromGS("Secretary", gsCandidateJson),
+      "Treasurer": candidatesFromGS("Treasurer", gsCandidateJson),
+      "Internal Organizer": candidatesFromGS("Internal Organizer", gsCandidateJson),
+      "External Organizer": candidatesFromGS("External Organizer", gsCandidateJson),
+      "At Large Member of Local Council": candidatesFromGS("At Large Member of Local Council", gsCandidateJson),
+    },
+    nationalConvention: {
+      candidates: Array(30).fill().map(fakeData.candidate)
+    }
+  });
 
-    const data = electionData({
-      localCouncil: {
-        "Co-chair": candidatesFromGS("Co-chair", gsCandidateJson),
-        "Vice Chair": candidatesFromGS("Vice Chair", gsCandidateJson),
-        "Secretary": candidatesFromGS("Secretary", gsCandidateJson),
-        "Treasurer": candidatesFromGS("Treasurer", gsCandidateJson),
-        "Internal Organizer": candidatesFromGS("Internal Organizer", gsCandidateJson),
-        "External Organizer": candidatesFromGS("External Organizer", gsCandidateJson),
-        "At Large Member of Local Council": candidatesFromGS("At Large Member of Local Council", gsCandidateJson),
-      },
-      nationalConvention: {
-        candidates: Array(30).fill().map(fakeData.candidate)
-      }
-    });
-
-    jsonfile.writeFileSync('./public/election-data.json', data);
+  jsonfile.writeFileSync('./public/election-data.json', data);
 });
-

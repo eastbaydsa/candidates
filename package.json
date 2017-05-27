@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dotenv": "^4.0.0",
     "faker": "^4.1.0",
     "glamor": "^2.20.25",
     "glamorous": "^3.17.0",
@@ -24,7 +25,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "bootstrap": "yarn install",
-    "build-data": "node scripts/build-data",
+    "build-data": "node -r dotenv/config scripts/build-data",
     "sample-data": "node scripts/sample-data",
     "deploy": "npm run build && ns build --public"
   },
