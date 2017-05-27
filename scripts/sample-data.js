@@ -138,5 +138,5 @@ gsjson({
 
 jsonfile.writeFileSync('./public/fixtures.json', data);
 
-})
+});
 

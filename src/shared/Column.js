@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Div } from 'glamorous';
 import { css } from 'glamor';
 import PropTypes from 'prop-types';
+import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 
 class Column extends Component {
   render() {
@@ -13,11 +14,10 @@ class Column extends Component {
       flexDirection: 'column',
       ':first-child': {
         marginLeft: 0
-      },
-      '@media(min-width: 768px)': {
-        marginLeft: '20px',
       }
-    });
+    }, tabletPortraitBreakpoint({
+      marginLeft: '20px',
+    }));
       
     return (
       <Div {...rules} {...this.props}>{this.props.children}</Div>

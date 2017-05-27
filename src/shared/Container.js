@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Div } from 'glamorous';
 import { css } from 'glamor';
+import { containerWidth } from '../styles/layout';
 
 class Container extends Component {
   render() {
     const rules = css({
       padding: '0 10px',
-      maxWidth: '768px',
+      maxWidth: containerWidth,
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
