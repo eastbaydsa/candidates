@@ -24,10 +24,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "bootstrap": "yarn install",
+    "build-data": "node scripts/build-data",
     "sample-data": "node scripts/sample-data",
     "deploy": "npm run build && ns build --public"
   },
-  "proxy": "http://localhost:3001",
   "main": "index.js",
   "license": "MIT",
   "eslintConfig": {
