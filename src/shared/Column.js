@@ -8,8 +8,6 @@ class Column extends Component {
   render() {
     const rules = css({
       position: 'relative',
-      flexBasis: '0',
-      flexGrow: 1,
       display: 'flex',
       flexDirection: 'column',
       ':first-child': {
@@ -17,8 +15,10 @@ class Column extends Component {
       }
     }, tabletPortraitBreakpoint({
       marginLeft: '20px',
+      flexBasis: '0',
+      flexGrow: 1,
     }));
-      
+
     return (
       <Div {...rules} {...this.props}>{this.props.children}</Div>
     );

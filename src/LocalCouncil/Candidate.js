@@ -4,15 +4,32 @@ import Row from '../shared/Row';
 import Column from '../shared/Column';
 import { gray6 } from '../styles/colors';
 import { Div, H4, Img } from 'glamorous';
+import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 
-class Candidate extends Component {
+const imageRules = [
+  {
+    display: 'block',
+    width: '300px',
+    height: '300px',
+  },
+  tabletPortraitBreakpoint({
+    alignSelf: 'right',
+  })
+];
+
+const answersRules = tabletPortraitBreakpoint({
+  paddingTop: '100px'
+});
+
+class
+Candidate extends Component {
   render() {
     const Name = (props) => {
       return <H4 fontSize="24px">{props.children}</H4>
     }
 
     const Image = (props) => {
-      return <Img display="block" alignSelf="right" width="300px" height="300px" src={this.props.imageUrl} alt={this.props.name} />
+      return <Img css={imageRules} src={this.props.imageUrl} alt={this.props.name} />
     }
 
     const Question = (props) => {
@@ -29,7 +46,7 @@ class Candidate extends Component {
           <Column alignItems="right" flexDirection="row-reverse">
             <Image />
           </Column>
-          <Column paddingTop="100px">
+          <Column css={answersRules}>
             <Name>{this.props.name}</Name>
             <Question text="Please describe your involvement in East Bay DSA" />
             <Answer text={this.props.involvement} />
