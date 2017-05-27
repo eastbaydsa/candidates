@@ -22,7 +22,7 @@ class Position extends Component {
   render() {
     return (
       <div>
-        <Section tier={3}>
+        <Section tier={3} id={this.props.slug}>
           <h2>{this.props.title}</h2>
           <div dangerouslySetInnerHTML={{__html: this.props.description}}></div>
           <div>

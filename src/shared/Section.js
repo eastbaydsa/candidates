@@ -36,7 +36,7 @@ class Section extends Component {
     const tierRules = tiers[this.props.tier - 1];
 
     return (
-      <Div css={[rules, tierRules]}>
+      <Div css={[rules, tierRules]} id={this.props.id}>
         <Container>{this.props.children}</Container>
       </Div>
     );
@@ -44,7 +44,8 @@ class Section extends Component {
 }
 
 Section.propTypes = {
-  tier: PropTypes.oneOf([1, 2, 3, 4])
+  tier: PropTypes.oneOf([1, 2, 3, 4]),
+  id: PropTypes.string,
 }
 
 export default Section;

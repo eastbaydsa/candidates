@@ -1,16 +1,17 @@
 const jsonfile = require('jsonfile');
 var gsjson = require('google-spreadsheet-to-json');
-const electionData = require('../data/election-data');
+const { serialize, candidateSlug } = require('../data/election-data');
 const fakeData = require('../data/fake-data');
 
 function candidatesFromGS(position, GSdata) {
     var candidates = [];
-    
-    for(var i in GSdata) {    
-        var item = GSdata[i];   
+
+    for(var i in GSdata) {
+        var item = GSdata[i];
         if (item["whichPositionAreYouRunningFor?"] == position) {
-            candidates.push({ 
+            candidates.push({
                 name: item["firstAndLastName"],
+                slug: candidateSlug(position, item["firstAndLastName"]),
                 imageUrl: fakeData.image(),
                 involvement: item["pleaseDescribeYourInvolvementInEastBayDsa."],
                 qualifications: item["whyAreYouQualifiedForThisSpecificRole?"],
@@ -33,7 +34,7 @@ gsjson({
   console.log(gsCandidateJson.length);
   console.log(gsCandidateJson);
 
-  const data = electionData({
+  const data = serialize({
     localCouncil: {
       "Co-chair": candidatesFromGS("Co-chair", gsCandidateJson),
       "Vice Chair": candidatesFromGS("Vice Chair", gsCandidateJson),

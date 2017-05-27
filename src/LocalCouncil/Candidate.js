@@ -24,7 +24,7 @@ class Candidate extends Component {
     const Answer = (props) => { return <p>{props.text}</p> }
 
     return (
-      <Section key={this.props.name} tier={4}>
+      <Section key={this.props.name} tier={4} id={this.props.slug}>
         <Row>
           <Column alignItems="right" flexDirection="row-reverse">
             <Image />

@@ -1,4 +1,4 @@
-module.exports = function(data) {
+function serialize(data) {
   return {
     localCouncil: {
       positions: [
@@ -74,3 +74,12 @@ module.exports = function(data) {
     }
   }
 }
+
+function candidateSlug(position, candidateName) {
+  return [position, candidateName].reduce((acc, phrase) => {
+    console.log(acc, phrase)
+    return acc.concat(phrase.split(' '))
+  }, []).join('-').toLowerCase();
+}
+
+module.exports = { serialize, candidateSlug }
