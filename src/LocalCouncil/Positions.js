@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Position from './Position';
 import Section from '../shared/Section';
+import { Link } from '../shared/Link';
 
 class Positions extends Component {
   renderPositionLinks() {
     return this.props.positions.map(position => {
       return (
         <div key={position.slug}>
-          <a href={`/local-council/${position.slug}`}>{position.title}</a>
+          <Link to={position.slug}>{position.title}</Link>
         </div>
       )
     });

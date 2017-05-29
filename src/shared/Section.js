@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Div } from 'glamorous';
 import Container from '../shared/Container';
 import { red1, red4, red7 } from '../styles/colors';
+import Waypoint  from 'react-waypoint';
 
 const tiers = [
   {
@@ -36,9 +37,13 @@ class Section extends Component {
     const tierRules = tiers[this.props.tier - 1];
 
     return (
-      <Div css={[rules, tierRules]} id={this.props.id}>
-        <Container>{this.props.children}</Container>
-      </Div>
+      <Waypoint onEnter={() => {console.log(this.props.id)}}>
+        <div>
+          <Div css={[rules, tierRules]} id={this.props.id}>
+            <Container>{this.props.children}</Container>
+          </Div>
+        </div>
+      </Waypoint>
     );
   }
 }

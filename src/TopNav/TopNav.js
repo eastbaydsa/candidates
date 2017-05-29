@@ -16,12 +16,10 @@ class TopNav extends Component {
   }
 
   open() {
-    console.log('OPEN')
     this.setState({ isOpen: true });
   }
 
   close() {
-    console.log('CLOSE')
     this.setState({ isOpen: false });
   }
 
