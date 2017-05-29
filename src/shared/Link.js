@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 class LinkComponent extends Component {
   render() {
     return (
-      <Link to={this.props.to} smooth={true}>{this.props.children}</Link>
+      <Link {...this.props} smooth={true}>{this.props.children}</Link>
     );
   }
 }

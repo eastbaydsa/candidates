@@ -38,7 +38,7 @@ class TopNav extends Component {
     return (
       <Nav css={rules}>
         <NavBar isOpen={this.state.isOpen} onOpenClick={this.open} onCloseClick={this.close} />
-        { this.state.isOpen ? <Links links={this.props.links} /> : null }
+        { this.state.isOpen ? <Links links={this.props.links} closeMenu={this.close} /> : null }
       </Nav>
     );
   }

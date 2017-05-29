@@ -17,7 +17,7 @@ class Links extends Component {
   renderLink(link) {
     return (
       <Div key={link.to} display="block">
-        <Link to={link.to}>{link.label}</Link>
+        <Link to={link.to} onClick={this.props.closeMenu}>{link.label}</Link>
       </Div>
     )
   }
