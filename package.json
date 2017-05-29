@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "bootstrap": "yarn install",
+    "bootstrap": "yarn install && npm run build-data && npm run sample-data",
     "build-data": "node -r dotenv/config scripts/build-data",
     "sample-data": "node scripts/sample-data",
     "deploy": "npm run build && ns build --public"

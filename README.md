@@ -4,7 +4,7 @@
 ## Getting set up in development
 
 - Install yarn `npm install --global yarn`
-- Install dependencies `npm run bootstrap`
+- Install dependencies & build data `npm run bootstrap`
 
 ## Running the app in development
 - Start the client `npm run start`
