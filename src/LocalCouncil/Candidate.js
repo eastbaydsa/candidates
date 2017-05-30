@@ -3,7 +3,7 @@ import { Span, H4, Img } from 'glamorous';
 
 import { gray6 } from '../styles/colors';
 import { headingFamily } from '../styles/fonts';
-import { tabletPortraitBreakpoint } from '../styles/breakpoints';
+import { tabletPortraitBreakpoint, tabletLandscapeBreakpoint } from '../styles/breakpoints';
 
 import Section from '../shared/Section';
 import SectionHeader from '../shared/SectionHeader';
@@ -12,21 +12,28 @@ import Paragraph from '../shared/Paragraph';
 
 const imageRules = [
   {
-    display: 'block',
-    width: '300px',
-    height: '300px',
-    borderRadius: '50%',
     position: 'absolute',
-    bottom: '0',
-    right: '-250px',
+    width: '150px',
+    height: '150px',
+    borderRadius: '50%',
+    top: '-170px',
+    right: '-20px'
   },
   tabletPortraitBreakpoint({
-    alignSelf: 'right',
+    top: 'auto',
+    bottom: '80px',
+    right: '-10px',
+  }),
+  tabletLandscapeBreakpoint({
+    right: '-90px',
+    width: '260px',
+    bottom: '40px',
+    height: '260px',
   })
 ];
 
 const nameRules = {
-  fontSize: "24px",
+  fontSize: "36px",
   fontFamily: headingFamily,
   margin: 0,
   textTransform: 'uppercase'
@@ -35,6 +42,19 @@ const nameRules = {
 const answersRules = tabletPortraitBreakpoint({
   paddingTop: '100px'
 });
+
+const wavyBorderRules = [
+  {
+    padding: '20px',
+    margin: '0 -20px',
+  }, tabletPortraitBreakpoint({
+    padding: '80px 200px 80px 80px',
+    margin: 0,
+  }),
+  tabletLandscapeBreakpoint({
+    padding: '80px 200px 260px 80px',
+  })
+];
 
 class
 Candidate extends Component {
@@ -57,7 +77,8 @@ Candidate extends Component {
 
     return (
       <Section key={this.props.name} tier={4} id={this.props.slug}>
-        <WavyBorder padding="80px 200px 200px 80px">
+        <WavyBorder css={wavyBorderRules}>
+          <Image />
           <SectionHeader>
             <Name>{this.props.name}</Name>
           </SectionHeader>
@@ -73,7 +94,6 @@ Candidate extends Component {
             <Question text="What do you hope to accomplish for the chapter if elected to this role?" />
             <Answer text={this.props.goals} />
           </Paragraph>
-          <Image />
         </WavyBorder>
       </Section>
     )

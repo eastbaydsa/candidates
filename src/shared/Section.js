@@ -21,7 +21,8 @@ const tiers = [
   {
     // Candidate
     backgroundColor: 'white',
-    border: 'none'
+    border: 'none',
+    marginBottom: '200px'
   },
 ]
 
