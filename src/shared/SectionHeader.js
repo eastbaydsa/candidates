@@ -15,6 +15,7 @@ class SectionHeader extends Component {
       padding: '20px',
     }, tabletPortraitBreakpoint({
       marginTop: '-125px',
+      marginRight: '0',
     })];
 
     return (
