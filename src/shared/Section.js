@@ -19,8 +19,9 @@ const tiers = [
     borderTop: `20px solid ${red1}`
   },
   {
+    // Candidate
     backgroundColor: 'white',
-    borderBottom: `20px solid ${red7}`
+    border: 'none'
   },
 ]
 
@@ -39,8 +40,8 @@ class Section extends Component {
     return (
       <Waypoint onEnter={() => {console.log(this.props.id)}}>
         <div>
-          <Div css={[rules, tierRules]} id={this.props.id}>
-            <Container>{this.props.children}</Container>
+          <Div css={rules} id={this.props.id}>
+            <Container css={tierRules}>{this.props.children}</Container>
           </Div>
         </div>
       </Waypoint>
