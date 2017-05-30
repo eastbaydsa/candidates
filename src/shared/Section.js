@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Div } from 'glamorous';
 import Container from '../shared/Container';
-import { red1, red4, red7 } from '../styles/colors';
+import { red1, red4 } from '../styles/colors';
 import Waypoint  from 'react-waypoint';
 
 const tiers = [

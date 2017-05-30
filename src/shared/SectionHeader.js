@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Div } from 'glamorous';
 
-import { tabletPortraitBreakpoint, tabletLandscapeBreakpoint } from '../styles/breakpoints';
+import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 
 class SectionHeader extends Component {
   render() {

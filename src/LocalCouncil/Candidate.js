@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Span, H4, Img } from 'glamorous';
 
-import { gray6 } from '../styles/colors';
 import { headingFamily } from '../styles/fonts';
 import { tabletPortraitBreakpoint, tabletLandscapeBreakpoint } from '../styles/breakpoints';
 
@@ -40,10 +39,6 @@ const nameRules = {
   margin: 0,
   textTransform: 'uppercase'
 }
-
-const answersRules = tabletPortraitBreakpoint({
-  paddingTop: '100px'
-});
 
 const wavyBorderRules = [
   {
