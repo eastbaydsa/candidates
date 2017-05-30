@@ -10,6 +10,8 @@ import SectionHeader from '../shared/SectionHeader';
 import WavyBorder from '../shared/WavyBorder';
 import Paragraph from '../shared/Paragraph';
 
+import Nominations from './Nominations';
+
 const imageRules = [
   {
     position: 'absolute',
@@ -95,6 +97,7 @@ Candidate extends Component {
             <Answer text={this.props.goals} />
           </Paragraph>
         </WavyBorder>
+        <Nominations nominations={this.props.nominations}/>
       </Section>
     )
   }
