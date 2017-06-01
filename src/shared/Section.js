@@ -29,7 +29,7 @@ const tiers = [
 class Section extends Component {
   render() {
     const rules = {
-      padding: '60px 0',
+      padding: '150px 0',
       minHeight: '60vh',
       display: 'flex',
       flexDirection: 'column',
