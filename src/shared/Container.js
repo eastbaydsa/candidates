@@ -12,7 +12,8 @@ class Container extends Component {
       flexDirection: 'column',
       width: '100%',
       margin: '0 auto',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      position: 'relative'
     });
       
     return (

@@ -11,7 +11,7 @@ class NavBar extends Component {
 
     const linkRules = {
       fontSize: '24px',
-      color: 'white',
+      color: 'black',
       width: '60px',
       display: 'flex',
       justifyContent: 'center',

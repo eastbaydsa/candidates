@@ -19,11 +19,7 @@ function candidate(position) {
     involvement: loremIpsum({ count: randomBetween(1, 3), units: 'paragraphs' }),
     qualifications: loremIpsum({ count: randomBetween(1, 2), units: 'paragraphs' }),
     goals: loremIpsum({ count: randomBetween(2, 3), units: 'paragraphs' }),
-    nominiation1Name: fakeName(),
-    nominiation2Name: fakeName(),
-    nominiation3Name: fakeName(),
-    nominiation4Name: fakeName(),
-    nominiation5Name: fakeName()
+    nominations: Array(randomBetween(1, 5)).fill().map(fakeName),
   }
 }
 

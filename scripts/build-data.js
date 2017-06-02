@@ -49,5 +49,5 @@ gsjson({
     }
   });
 
-  jsonfile.writeFileSync('./public/election-data.json', data);
+  jsonfile.writeFileSync('./src/data/election-data.json', data);
 });

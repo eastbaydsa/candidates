@@ -1,31 +1,63 @@
 import React, { Component } from 'react';
+import { Span, H4, Img } from 'glamorous';
+
+import { headingFamily } from '../styles/fonts';
+import { tabletPortraitBreakpoint, tabletLandscapeBreakpoint } from '../styles/breakpoints';
+
 import Section from '../shared/Section';
-import Row from '../shared/Row';
-import Column from '../shared/Column';
-import { gray6 } from '../styles/colors';
-import { Div, H4, Img } from 'glamorous';
-import { tabletPortraitBreakpoint } from '../styles/breakpoints';
+import SectionHeader from '../shared/SectionHeader';
+import WavyBorder from '../shared/WavyBorder';
+import Paragraph from '../shared/Paragraph';
+
+import Nominations from './Nominations';
 
 const imageRules = [
   {
-    display: 'block',
-    width: '300px',
-    height: '300px',
+    position: 'absolute',
+    width: '150px',
+    height: '150px',
+    borderRadius: '50%',
+    top: '-170px',
+    right: '-20px'
   },
   tabletPortraitBreakpoint({
-    alignSelf: 'right',
+    top: 'auto',
+    bottom: '80px',
+    right: '-10px',
+  }),
+  tabletLandscapeBreakpoint({
+    right: '-90px',
+    width: '260px',
+    bottom: '40px',
+    height: '260px',
   })
 ];
 
-const answersRules = tabletPortraitBreakpoint({
-  paddingTop: '100px'
-});
+const nameRules = {
+  fontSize: "36px",
+  fontFamily: headingFamily,
+  margin: 0,
+  textTransform: 'uppercase'
+}
+
+const wavyBorderRules = [
+  {
+    padding: '20px',
+    margin: '0 -20px',
+  }, tabletPortraitBreakpoint({
+    padding: '80px 200px 80px 80px',
+    margin: 0,
+  }),
+  tabletLandscapeBreakpoint({
+    padding: '80px 200px 260px 80px',
+  })
+];
 
 class
 Candidate extends Component {
   render() {
     const Name = (props) => {
-      return <H4 fontSize="24px">{props.children}</H4>
+      return <H4 css={nameRules}>{props.children}</H4>
     }
 
     const Image = (props) => {
@@ -34,31 +66,40 @@ Candidate extends Component {
 
     const Question = (props) => {
       return (
-        <Div fontStyle="italic" fontSize="20px" color={gray6}>{props.text}</Div>
+        <Span fontWeight="bold" textTransform="uppercase">{props.text} </Span>
       );
     }
 
-    const Answer = (props) => { return <p>{props.text}</p> }
+    const Answer = (props) => { return <Span>{props.text}</Span> }
 
     return (
       <Section key={this.props.name} tier={4} id={this.props.slug}>
-        <Row>
-          <Column alignItems="right" flexDirection="row-reverse">
-            <Image />
-          </Column>
-          <Column css={answersRules}>
+        <WavyBorder css={wavyBorderRules}>
+          <Image />
+          <SectionHeader>
             <Name>{this.props.name}</Name>
+          </SectionHeader>
+          <Paragraph>
             <Question text="Please describe your involvement in East Bay DSA" />
             <Answer text={this.props.involvement} />
+          </Paragraph>
+          <Paragraph>
             <Question text="Why are you qualified for this specific role?" />
             <Answer text={this.props.qualifications} />
+          </Paragraph>
+          <Paragraph>
             <Question text="What do you hope to accomplish for the chapter if elected to this role?" />
             <Answer text={this.props.goals} />
-          </Column>
-        </Row>
+          </Paragraph>
+        </WavyBorder>
+        {this.props.nominations.length > 0 ? <Nominations nominations={this.props.nominations}/> : null} 
       </Section>
     )
   }
+}
+
+Candidate.defaultProps = {
+  nominations: [],
 }
 
 export default Candidate;

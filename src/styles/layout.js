@@ -1,3 +1,3 @@
-const containerWidth = '600px';
+const containerWidth = '768px';
 
 export { containerWidth };
