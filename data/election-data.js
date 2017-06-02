@@ -76,8 +76,7 @@ function serialize(data) {
 }
 
 function candidateSlug(position, candidateName) {
-  return [position, candidateName].reduce((acc, phrase) => {
-    console.log(acc, phrase)
+  return [position, candidateName].reduce((acc, phrase = '') => {
     return acc.concat(phrase.split(' '))
   }, []).join('-').toLowerCase();
 }

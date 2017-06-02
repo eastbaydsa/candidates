@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 
 class ScrollToSection extends Component {
   componentDidMount() {
-    this.scrollToCurrentSection();
+    this.scrollToCurrentSection({ behavior: 'instant' });
   }
 
   componentDidUpdate(prevProps) {
@@ -12,12 +12,14 @@ class ScrollToSection extends Component {
     }
   }
 
-  scrollToCurrentSection() {
+  scrollToCurrentSection(options = { behavior: 'smooth' }) {
+    if (this.props.location.state && this.props.location.state.scroll === false) { return }
     const slug = this.props.location.pathname.replace('/', '');
-    const section = window.document.querySelector(`#${slug}`)
+    if (slug.length === 0) { return }
+    const section = window.document.querySelector(`#${slug}`);
     if (!section) { return }
 
-    section.scrollIntoView({ behavior: 'smooth' });
+    section.scrollIntoView(options);
   }
 
   render() {

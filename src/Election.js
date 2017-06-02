@@ -9,24 +9,15 @@ import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
 import NationalConventionIntro from './NationalConvention/Intro.js';
 import NationalConventionCandidates from './NationalConvention/Candidates.js';
 
+import electionData from './data/election-data.json';
+
 class Election extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      localCouncilElectionStore: new LocalCouncilElectionStore(),
+      localCouncilElectionStore: new LocalCouncilElectionStore(electionData.localCouncil),
       nationalConventionCandidates: []
     };
-  }
-
-  componentDidMount() {
-    fetch('/sample-data.json').then((response) => {
-      response.json().then((data) => {
-        this.setState({
-          localCouncilElectionStore: new LocalCouncilElectionStore(data.localCouncil),
-          nationalConventionCandidates: data.nationalConvention.candidates
-        });
-      });
-    });
   }
 
   navLinks() {

@@ -17,5 +17,5 @@ const data = serialize({
   }
 });
 
-jsonfile.writeFileSync('./public/sample-data.json', data);
+jsonfile.writeFileSync('./src/data/sample-data.json', data);
 

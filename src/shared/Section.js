@@ -27,6 +27,19 @@ const tiers = [
 ]
 
 class Section extends Component {
+  constructor(props) {
+    super(props);
+
+    ['updateBrowserHistory'].forEach((fn) => { this[fn] = this[fn].bind(this); });
+  }
+
+  updateBrowserHistory() {
+    if (this.props.id === undefined) { return }
+    const currentPath = `/${this.props.id}`
+    console.log(`update browser history! ${currentPath}`);
+    this.context.router.history.replace(currentPath, { scroll: false });
+  }
+
   render() {
     const rules = {
       padding: '150px 0',
@@ -39,7 +52,7 @@ class Section extends Component {
     const tierRules = tiers[this.props.tier - 1];
 
     return (
-      <Waypoint onEnter={() => {console.log(this.props.id)}}>
+      <Waypoint scrollableAncestor={window} bottomOffset={'50%'} onEnter={this.updateBrowserHistory}>
         <div>
           <Div css={rules} id={this.props.id}>
             <Container css={tierRules}>{this.props.children}</Container>
@@ -54,5 +67,9 @@ Section.propTypes = {
   tier: PropTypes.oneOf([1, 2, 3, 4]),
   id: PropTypes.string,
 }
+
+Section.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 export default Section;

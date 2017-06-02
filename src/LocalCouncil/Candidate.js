@@ -92,10 +92,14 @@ Candidate extends Component {
             <Answer text={this.props.goals} />
           </Paragraph>
         </WavyBorder>
-        <Nominations nominations={this.props.nominations}/>
+        {this.props.nominations.length > 0 ? <Nominations nominations={this.props.nominations}/> : null} 
       </Section>
     )
   }
+}
+
+Candidate.defaultProps = {
+  nominations: [],
 }
 
 export default Candidate;
