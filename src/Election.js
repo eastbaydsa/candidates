@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import TopNav from './TopNav/TopNav';
 
+import Cover from './Cover.js';
 import LocalCouncilIntro from './LocalCouncil/Intro.js';
 import LocalCouncilPositions from './LocalCouncil/Positions.js';
 import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
@@ -34,6 +35,7 @@ class Election extends Component {
     return (
       <div>
         <TopNav links={this.navLinks()} />
+        <Cover />
         <LocalCouncilIntro />
         <LocalCouncilPositions positions={this.state.localCouncilElectionStore.positions()} />
         <NationalConventionIntro />

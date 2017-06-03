@@ -45,6 +45,7 @@ class TopNav extends Component {
   render() {
     const rules = {
       position: 'fixed',
+      top: '0',
       backgroundColor: 'white',
       borderBottom: '1px solid black',
       width: '100%',

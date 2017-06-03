@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Div, A } from 'glamorous';
+import { headerHeight } from '../styles/layout';
 
 class NavBar extends Component {
   render() {
     const rules = {
       display: 'flex',
       paddingLeft: '20px',
-      height: '60px'
+      height: headerHeight
     }
 
     const linkRules = {

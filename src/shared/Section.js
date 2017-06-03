@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Div } from 'glamorous';
 import Container from '../shared/Container';
-import { red1, red4 } from '../styles/colors';
+import { red1, red4 , grayDark } from '../styles/colors';
 import Waypoint  from 'react-waypoint';
 
 const tiers = [
+  {
+    backgroundColor: 'transparent',
+    border: `none`
+  },
   {
     backgroundColor: 'white',
     borderTop: `20px solid ${red1}`
@@ -49,7 +53,7 @@ class Section extends Component {
       justifyContent: 'center'
     };
 
-    const tierRules = tiers[this.props.tier - 1];
+    const tierRules = tiers[this.props.tier];
 
     return (
       <Waypoint scrollableAncestor={window} bottomOffset={'50%'} onEnter={this.updateBrowserHistory}>
