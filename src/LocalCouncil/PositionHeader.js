@@ -4,12 +4,15 @@ import { headingFamily } from '../styles/fonts';
 
 const titleRules = {
   position: 'relative',
-  textTransform: 'uppercase',
-  fontFamily: headingFamily,
-  background: 'black',
-  color: 'white',
   padding: '20px',
   margin: '0 0 40px 0',
+  
+  background: 'black',
+  color: 'white',
+
+  fontSize: '24px',
+  textTransform: 'uppercase',
+  fontFamily: headingFamily,
   textAlign: 'center',
 }
 

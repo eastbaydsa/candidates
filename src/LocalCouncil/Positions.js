@@ -23,9 +23,9 @@ class Positions extends Component {
   render() {
     return (
       <div>
-        <Section tier={2}>
+        {/*<Section tier={2}>
           {this.renderPositionLinks()}
-        </Section>
+        </Section>*/}
         {this.renderPositionDetails()}
       </div>
     );

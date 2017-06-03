@@ -33,6 +33,7 @@ export default function IndexLink(props) {
       <Div css={containerRules}>
         <Span css={labelRules}>{props.label}</Span>
         <Span css={dashRules}></Span>
+        <span>🌹</span>
       </Div>
     </Link>
   );
