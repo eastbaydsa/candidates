@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Election from './Election.js';
 
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <Switch>
         <Route path="/" component={Election} />
         <Route path="/:section" component={Election} />
-      </div>
+      </Switch>
     );
   }
 }
