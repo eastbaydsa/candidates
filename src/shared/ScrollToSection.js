@@ -14,7 +14,7 @@ class ScrollToSection extends Component {
 
   scrollToCurrentSection(options = { behavior: 'smooth' }) {
     if (this.props.location.state && this.props.location.state.scroll === false) { return }
-    const slug = this.props.location.pathname.replace('/', '');
+    const slug = this.props.location.pathname.replace(/\//g, '');
     if (slug.length === 0) { return }
     const section = window.document.querySelector(`#${slug}`);
     if (!section) { return }

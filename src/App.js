@@ -6,7 +6,10 @@ import Election from './Election.js';
 class App extends Component {
   render() {
     return (
-      <Route path="/:section" component={Election} />
+      <div>
+        <Route path="/" component={Election} />
+        <Route path="/:section" component={Election} />
+      </div>
     );
   }
 }
