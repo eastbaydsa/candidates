@@ -9,3 +9,8 @@ body {
 #root {
   overflow-x: hidden;
 }
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+  color: inherit;
+}

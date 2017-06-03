@@ -10,7 +10,7 @@ import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
 import NationalConventionIntro from './NationalConvention/Intro.js';
 import NationalConventionCandidates from './NationalConvention/Candidates.js';
 
-import electionData from './data/election-data.json';
+import electionData from './data/sample-data.json';
 
 class Election extends Component {
   constructor(props) {
@@ -32,9 +32,11 @@ class Election extends Component {
   }
 
   render() {
+    const links = this.navLinks();
+
     return (
       <div>
-        <TopNav links={this.navLinks()} />
+        <TopNav links={links} />
         <Cover />
         <LocalCouncilIntro />
         <LocalCouncilPositions positions={this.state.localCouncilElectionStore.positions()} />

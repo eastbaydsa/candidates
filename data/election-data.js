@@ -7,11 +7,9 @@ function serialize(data) {
           slug: 'co-chair',
           description: `
   <p>The Co-Chairs shall be the official public spokespersons for the Local and will initiate such actions and policies as the Local’s general welfare may demand. The Co-Chairs shall organize and preside over all official meetings of the organization and the Local Council. The Co-Chairs shall maintain consistent communication with all committee leaders and facilitate collaboration and coordination between them. Additionally:</p>
-  <ul>
-    <li>a. The Co-Chairs will also act as, or appoint, the official representatives of the Local to the National Organization and to other DSA Locals. This does not apply during official business at the National DSA Convention, when Local Delegates may act independently on behalf of the Local’s membership.</li>
-    <li>b. The Co-Chairs serve as executive officers of the Local, and they are listed on financial accounts along with the Treasurer.</li>
-    <li>c. At least one Co-Chair must not identify as both White and Cis-Male.</li>
-  </ul>
+  <p>The Co-Chairs will also act as, or appoint, the official representatives of the Local to the National Organization and to other DSA Locals. This does not apply during official business at the National DSA Convention, when Local Delegates may act independently on behalf of the Local’s membership.</p>
+  <p>The Co-Chairs serve as executive officers of the Local, and they are listed on financial accounts along with the Treasurer.</p>
+  <p>At least one Co-Chair must not identify as both White and Cis-Male.</p>
           `,
           candidates: data.localCouncil["Co-chair"]
         },

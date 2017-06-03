@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Div } from 'glamorous';
 import Container from '../shared/Container';
 import { red1, red4 , grayDark } from '../styles/colors';
-import Waypoint  from 'react-waypoint';
+import NavAnchor from './NavAnchor';
 
 const tiers = [
   {
@@ -56,13 +56,13 @@ class Section extends Component {
     const tierRules = tiers[this.props.tier];
 
     return (
-      <Waypoint scrollableAncestor={window} bottomOffset={'50%'} onEnter={this.updateBrowserHistory}>
+      <NavAnchor id={this.props.id}>
         <div>
-          <Div css={rules} id={this.props.id}>
+          <Div css={rules} >
             <Container css={tierRules}>{this.props.children}</Container>
           </Div>
         </div>
-      </Waypoint>
+      </NavAnchor>
     );
   }
 }

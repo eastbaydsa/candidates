@@ -5,7 +5,7 @@ import { headingFamily } from '../styles/fonts';
 import { tabletPortraitBreakpoint, tabletLandscapeBreakpoint } from '../styles/breakpoints';
 
 import Section from '../shared/Section';
-import SectionHeader from '../shared/SectionHeader';
+import CandidateHeader from '../shared/CandidateHeader';
 import WavyBorder from '../shared/WavyBorder';
 import Paragraph from '../shared/Paragraph';
 
@@ -76,9 +76,9 @@ Candidate extends Component {
       <Section key={this.props.name} tier={4} id={this.props.slug}>
         <WavyBorder css={wavyBorderRules}>
           <Image />
-          <SectionHeader>
+          <CandidateHeader>
             <Name>{this.props.name}</Name>
-          </SectionHeader>
+          </CandidateHeader>
           <Paragraph>
             <Question text="Please describe your involvement in East Bay DSA" />
             <Answer text={this.props.involvement} />

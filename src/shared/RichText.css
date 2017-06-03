@@ -1,0 +1,17 @@
+.RichText {
+  text-align: justify;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .RichText {
+    font-size: 18px;
+  }
+}
+
+.RichText p {
+  margin: 0 0 20px 0;
+}
