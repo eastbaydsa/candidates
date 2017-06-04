@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Span, H4, Img } from 'glamorous';
 
 import { headingFamily } from '../styles/fonts';
@@ -53,49 +53,46 @@ const wavyBorderRules = [
   })
 ];
 
-class
-Candidate extends Component {
-  render() {
-    const Name = (props) => {
-      return <H4 css={nameRules}>{props.children}</H4>
-    }
+const Name = (props) => {
+  return <H4 css={nameRules}>{props.children}</H4>
+}
 
-    const Image = (props) => {
-      return <Img css={imageRules} src={this.props.imageUrl} alt={this.props.name} />
-    }
+const Image = (props) => {
+  return <Img css={imageRules} src={props.imageUrl} alt={props.name} />
+}
 
-    const Question = (props) => {
-      return (
-        <Span fontWeight="bold" textTransform="uppercase">{props.text} </Span>
-      );
-    }
+const Question = (props) => {
+  return (
+    <Span fontWeight="bold" textTransform="uppercase">{props.text} </Span>
+  );
+}
 
-    const Answer = (props) => { return <Span>{props.text}</Span> }
+const Answer = (props) => { return <Span>{props.text}</Span> }
 
-    return (
-      <Section key={this.props.name} tier={4} id={this.props.slug}>
-        <WavyBorder css={wavyBorderRules}>
-          <Image />
-          <CandidateHeader>
-            <Name>{this.props.name}</Name>
-          </CandidateHeader>
-          <Paragraph>
-            <Question text="Please describe your involvement in East Bay DSA" />
-            <Answer text={this.props.involvement} />
-          </Paragraph>
-          <Paragraph>
-            <Question text="Why are you qualified for this specific role?" />
-            <Answer text={this.props.qualifications} />
-          </Paragraph>
-          <Paragraph>
-            <Question text="What do you hope to accomplish for the chapter if elected to this role?" />
-            <Answer text={this.props.goals} />
-          </Paragraph>
-        </WavyBorder>
-        {this.props.nominations.length > 0 ? <Nominations nominations={this.props.nominations}/> : null} 
-      </Section>
-    )
-  }
+function Candidate(props) {
+  return (
+    <Section key={props.name} tier={4} id={props.slug}>
+      <WavyBorder css={wavyBorderRules}>
+        <Image />
+        <CandidateHeader>
+          <Name>{props.name}</Name>
+        </CandidateHeader>
+        <Paragraph>
+          <Question text="Please describe your involvement in East Bay DSA" />
+          <Answer text={props.involvement} />
+        </Paragraph>
+        <Paragraph>
+          <Question text="Why are you qualified for this specific role?" />
+          <Answer text={props.qualifications} />
+        </Paragraph>
+        <Paragraph>
+          <Question text="What do you hope to accomplish for the chapter if elected to this role?" />
+          <Answer text={props.goals} />
+        </Paragraph>
+      </WavyBorder>
+      {props.nominations.length > 0 ? <Nominations nominations={props.nominations}/> : null} 
+    </Section>
+  )
 }
 
 Candidate.defaultProps = {

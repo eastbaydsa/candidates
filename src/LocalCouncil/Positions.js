@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Position from './Position';
-import Section from '../shared/Section';
 import { Link } from '../shared/Link';
 
 class Positions extends Component {
@@ -23,9 +22,6 @@ class Positions extends Component {
   render() {
     return (
       <div>
-        {/*<Section tier={2}>
-          {this.renderPositionLinks()}
-        </Section>*/}
         {this.renderPositionDetails()}
       </div>
     );

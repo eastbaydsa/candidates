@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { H3, Div } from 'glamorous';
 import { headingFamily } from '../styles/fonts';
 
@@ -25,15 +25,13 @@ const shadowRules = {
   border: '1px solid black'
 }
 
-class PositionHeader extends Component {
-  render() {
-    return (
-      <H3 css={titleRules}>
-        {this.props.title} position
-        <Div css={shadowRules}></Div>
-      </H3>
-    );
-  }
+function PositionHeader(props) {
+  return (
+    <H3 css={titleRules}>
+      {props.title} position
+      <Div css={shadowRules}></Div>
+    </H3>
+  );
 }
 
 export default PositionHeader;

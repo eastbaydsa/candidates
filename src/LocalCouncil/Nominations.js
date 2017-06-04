@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Div, H4 } from 'glamorous';
 
 import { tabletPortraitBreakpoint, tabletLandscapeBreakpoint } from '../styles/breakpoints';
@@ -28,21 +28,15 @@ const labelRules = [{
   margin: '0 0 10px 0'
 }];
 
-class Nominations extends Component {
-  renderNominations() {
-    return this.props.nominations.map(nomination => {
-      return <Paragraph key={nomination} marginBottom="10px">{nomination}</Paragraph>
-    });
-  }
-
-  render() {
-    return (
-      <Div css={wrapperRules} >
-        <H4 css={labelRules}>Nominated By:</H4>
-        {this.renderNominations()}
-      </Div>
-    );
-  }
+function Nominations(props) {
+  return (
+    <Div css={wrapperRules} >
+      <H4 css={labelRules}>Nominated By:</H4>
+      {props.nominations.map(nomination => {
+        return <Paragraph key={nomination} marginBottom="10px">{nomination}</Paragraph>
+      })}
+    </Div>
+  );
 }
 
 export default Nominations;

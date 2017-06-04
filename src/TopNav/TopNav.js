@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Nav } from 'glamorous';
 import { topNavLayer } from '../styles/layers';
 
-import Links from './Links';
+import Index from '../shared/Index';
 import NavBar from './NavBar';
 
 class TopNav extends Component {
@@ -57,7 +57,7 @@ class TopNav extends Component {
     return (
       <Nav css={rules} innerRef={this.storeElRef}>
         <NavBar isOpen={this.state.isOpen} onOpenClick={this.open} onCloseClick={this.close} />
-        { this.state.isOpen ? <Links links={this.props.links} closeMenu={this.close} /> : null }
+        { this.state.isOpen ? <Index title="Your election packet" links={this.props.links} /> : null }
       </Nav>
     );
   }

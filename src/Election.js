@@ -4,7 +4,7 @@ import TopNav from './TopNav/TopNav';
 
 import Cover from './Cover.js';
 import LocalCouncilIntro from './LocalCouncil/Intro.js';
-import LocalCouncilPositions from './LocalCouncil/Positions.js';
+import LocalCouncilPosition from './LocalCouncil/Position.js';
 import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
 
 import NationalConventionIntro from './NationalConvention/Intro.js';
@@ -23,11 +23,11 @@ class Election extends Component {
 
   navLinks() {
     return [
-      [{ label: 'Introduction', to: '#intro' }],
-      this.state.localCouncilElectionStore.positions().map((position) => {
+      { label: 'Introduction', to: '#intro' },
+      ...this.state.localCouncilElectionStore.positions().map((position) => {
         return { label: position.title, to: position.slug }
       }),
-      [{ label: 'DSA National Convention Delegates', to: '#dsa-national-convention-delegates' }],
+      { label: 'DSA National Convention Delegates', to: '#dsa-national-convention-delegates' },
     ]
   }
 
@@ -39,7 +39,9 @@ class Election extends Component {
         <TopNav links={links} />
         <Cover />
         <LocalCouncilIntro />
-        <LocalCouncilPositions positions={this.state.localCouncilElectionStore.positions()} />
+        {this.state.localCouncilElectionStore.positions().map(position => {
+          return <LocalCouncilPosition key={position.slug} {...position} />
+        })}
         <NationalConventionIntro />
         <NationalConventionCandidates candidates={this.state.nationalConventionCandidates} />
       </div>

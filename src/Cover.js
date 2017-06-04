@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import Section from './shared/Section';
-import Container from './shared/Container';
+import React from 'react';
 import { Div, H1, H2, H3 } from 'glamorous';
-import { red0, red1, red4 , grayDark } from './styles/colors';
+
+import { red0, grayDark } from './styles/colors';
 import { headingFamily } from './styles/fonts';
 import { headerHeight } from './styles/layout';
 
@@ -57,29 +56,25 @@ const gradientRules = {
   marginTop: '1vmax'
 }
 
-class Cover extends Component {
-  render() {
-    return (
-      <Div css={outerContainerRules}>
-        {/*<Container>*/}
-          <H1 css={titleRules}>
-            <div>General </div>
-            <div>Meeting </div>
-            <div>Voting </div>
-            <div>Guide </div>
-          </H1>
-          <H2 css={subtitleRules}>
-            <div>East Bay</div>
-            <div>Democratic </div>
-            <div>Socialists</div>
-            <div>of America</div>
-            <Div css={gradientRules}></Div>
-          </H2>
-          <H3 css={yearRules}>2017</H3>
-        {/*</Container>*/}
-      </Div>
-    );
-  }
+function Cover() {
+  return (
+    <Div css={outerContainerRules}>
+        <H1 css={titleRules}>
+          <div>General </div>
+          <div>Meeting </div>
+          <div>Voting </div>
+          <div>Guide </div>
+        </H1>
+        <H2 css={subtitleRules}>
+          <div>East Bay</div>
+          <div>Democratic </div>
+          <div>Socialists</div>
+          <div>of America</div>
+          <Div css={gradientRules}></Div>
+        </H2>
+        <H3 css={yearRules}>2017</H3>
+    </Div>
+  );
 }
 
 export default Cover;

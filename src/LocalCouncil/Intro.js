@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import NavAnchor from '../shared/NavAnchor';
 import WavyBorder from '../shared/WavyBorder';
 import Paragraph from '../shared/Paragraph';
 import CandidateHeader from '../shared/CandidateHeader';
 import Container from '../shared/Container';
 
-export default function Intro() {
+function Intro() {
   return (
     <NavAnchor id="intro">
       <Container marginTop="120px" marginBottom="120px">
@@ -18,3 +19,5 @@ export default function Intro() {
     </NavAnchor>
   );
 }
+
+export default Intro;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Div, Span } from 'glamorous';
 import { Link } from 'react-router-dom';
 
@@ -9,15 +9,11 @@ const containerRules = {
   alignItems: 'center',
   minHeight: '30px',
   fontSize: '24px',
+  textTransform: 'uppercase',
+  fontWeight: 700,
   ":hover": {
     color: red0
   },
-}
-
-const labelRules = {
-  textTransform: 'uppercase',
-  fontWeight: 700,
-  textDecoration: 'none'
 }
 
 const dashRules = {
@@ -28,12 +24,14 @@ const dashRules = {
 }
 
 export default function IndexLink(props) {
+  const prefix = props.number >= 10 ? '' : '0';
+
   return (
     <Link to={props.to}>
       <Div css={containerRules}>
-        <Span css={labelRules}>{props.label}</Span>
+        <span>{props.label}</span>
         <Span css={dashRules}></Span>
-        <span>🌹</span>
+        <span>{`${prefix}${props.number}`}</span>
       </Div>
     </Link>
   );

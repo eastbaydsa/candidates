@@ -31,7 +31,7 @@ NavAnchor.contextTypes = {
 };
 
 NavAnchor.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 }
 
 export default NavAnchor;

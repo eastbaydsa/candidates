@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import { H3, Div } from 'glamorous';
+import React from 'react';
+import { Div } from 'glamorous';
 
 import Candidate from './Candidate';
-
 import PositionHeader from './PositionHeader';
+
 import NavAnchor from '../shared/NavAnchor';
-import { Link } from '../shared/Link';
 import WavyBorder from '../shared/WavyBorder';
 import RichText from '../shared/RichText';
 import Container from '../shared/Container';
 import Index from '../shared/Index';
 
-import { headingFamily } from '../styles/fonts';
 import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 
 const containerRules = {
@@ -29,35 +27,29 @@ const candidateLinksRules = [{
 
 })];
 
-class Position extends Component {
-  renderCandidateDetails() {
-    return this.props.candidates.map(candidate => {
-      return <Candidate key={candidate.name} {...candidate} />
-    });
-  }
+function Position(props) {
+  const candidateLinks = props.candidates.map(candidate => {
+    return { to: candidate.slug, label: candidate.name }
+  });
 
-  render() {
-    const candidateLinks = this.props.candidates.map(candidate => {
-      return { to: candidate.slug, label: candidate.name }
-    });
-
-    return (
-      <div>
-        <NavAnchor tier={0} id={this.props.slug}>
-          <Container max-width={'600px'}>
-            <WavyBorder css={containerRules}>
-              <PositionHeader title={this.props.title}></PositionHeader>
-              <RichText content={this.props.description}></RichText>
-              <Div css={candidateLinksRules}>
-                <Index links={candidateLinks} />
-              </Div>
-            </WavyBorder>
-          </Container>
-        </NavAnchor>
-        {this.renderCandidateDetails()}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <NavAnchor tier={0} id={props.slug}>
+        <Container maxWidth={'600px'}>
+          <WavyBorder css={containerRules}>
+            <PositionHeader title={props.title}></PositionHeader>
+            <RichText content={props.description}></RichText>
+            <Div css={candidateLinksRules}>
+              <Index title="Nominees" links={candidateLinks} />
+            </Div>
+          </WavyBorder>
+        </Container>
+      </NavAnchor>
+      {props.candidates.map(candidate => {
+        return <Candidate key={candidate.name} {...candidate} />
+      })}
+    </div>
+  );
 }
 
 export default Position;
