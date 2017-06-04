@@ -4,7 +4,8 @@ import { Div } from 'glamorous';
 class WavyBorder extends Component {
   render() {
     const rules = [{
-      border: '3px solid transparent',
+      borderWidth: '3px',
+      borderStyle: 'solid',
       borderImage: 'url("/wavy-border.svg") round',
       borderImageSlice: 8,
       borderImageWidth: '10px',
