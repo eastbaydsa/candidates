@@ -4,11 +4,17 @@
 ## Getting set up in development
 
 - Install yarn `npm install --global yarn`
+- Duplicate `.env.sample` and rename it to `.env`
+- Set the spreadsheet ids in `.env`
 - Install dependencies & build data `npm run bootstrap`
 
 ## Running the app in development
 - Start the client `npm run start`
 - Open the app `open http://localhost:3000`
+
+## Make a build to deploy
+- Build the project `npm run build`
+- Static build will be in `/build`
 
 
 ---
