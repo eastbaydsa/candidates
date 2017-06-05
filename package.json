@@ -16,6 +16,7 @@
     "react-scrollchor": "^3.0.0",
     "react-snapshot": "^1.1.0",
     "react-waypoint": "^7.0.3",
+    "smooth-scroll": "^11.1.0",
     "smoothscroll-polyfill": "^0.3.5"
   },
   "devDependencies": {

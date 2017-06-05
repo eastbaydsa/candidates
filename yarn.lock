@@ -5698,6 +5698,10 @@ slide@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/slide/-/slide-1.1.6.tgz#56eb027d65b4d2dce6cb2e2d32c4d4afc9e1d707"
 
+smooth-scroll@^11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/smooth-scroll/-/smooth-scroll-11.1.0.tgz#c12aa1c5b4200df9c5b8fd08d91100f16b55174b"
+
 smoothscroll-polyfill@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.3.5.tgz#466e6039b51cb525d70e1a5077ef81e064678eae"
