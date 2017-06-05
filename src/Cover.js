@@ -1,5 +1,6 @@
 import React from 'react';
 import { Div, H1, H2, H3 } from 'glamorous';
+import smoothScroll from 'smooth-scroll';
 
 import { red0, grayDark } from './styles/colors';
 import { headingFamily } from './styles/fonts';
@@ -56,9 +57,14 @@ const gradientRules = {
   marginTop: '1vmax'
 }
 
+function scrollToIntro() {
+  const intro = document.querySelector('#intro');
+  smoothScroll.animateScroll(intro);
+}
+
 function Cover() {
   return (
-    <Div css={outerContainerRules}>
+    <Div css={outerContainerRules} onClick={scrollToIntro}>
         <H1 css={titleRules}>
           <div>General </div>
           <div>Meeting </div>

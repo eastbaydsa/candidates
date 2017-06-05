@@ -33,13 +33,6 @@ const imageRules = [
   })
 ];
 
-const nameRules = {
-  fontSize: "36px",
-  fontFamily: headingFamily,
-  margin: 0,
-  textTransform: 'uppercase'
-}
-
 const wavyBorderRules = [
   {
     padding: '20px',
@@ -52,10 +45,6 @@ const wavyBorderRules = [
     padding: '80px 200px 260px 80px',
   })
 ];
-
-const Name = (props) => {
-  return <H4 css={nameRules}>{props.children}</H4>
-}
 
 const Image = (props) => {
   return <Img css={imageRules} src={props.imageUrl} alt={props.name} />
@@ -74,9 +63,7 @@ function Candidate(props) {
     <Section key={props.name} tier={4} id={props.slug}>
       <WavyBorder css={wavyBorderRules}>
         <Image />
-        <CandidateHeader>
-          <Name>{props.name}</Name>
-        </CandidateHeader>
+        <CandidateHeader title={props.name} />
         <Paragraph>
           <Question text="Please describe your involvement in East Bay DSA" />
           <Answer text={props.involvement} />

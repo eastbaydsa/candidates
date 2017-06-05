@@ -12,8 +12,12 @@ import Index from '../shared/Index';
 
 import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 
-const containerRules = {
+const wavyBorderRules = {
   padding: '30px 40px'
+}
+
+const containerRules = {
+  maxWidth: '600px',
 }
 
 const candidateLinksRules = [{
@@ -35,8 +39,8 @@ function Position(props) {
   return (
     <div>
       <NavAnchor tier={0} id={props.slug}>
-        <Container maxWidth={'600px'}>
-          <WavyBorder css={containerRules}>
+        <Container css={containerRules}>
+          <WavyBorder css={wavyBorderRules}>
             <PositionHeader title={props.title}></PositionHeader>
             <RichText content={props.description}></RichText>
             <Div css={candidateLinksRules}>

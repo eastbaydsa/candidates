@@ -1,27 +1,35 @@
-import React, { Component } from 'react';
-import { Div } from 'glamorous';
+import React from 'react';
+import { Div, H4 } from 'glamorous';
 
 import { tabletPortraitBreakpoint } from '../styles/breakpoints';
+import { headingFamily } from '../styles/fonts';
 
-class SectionHeader extends Component {
-  render() {
-    const rules = [{
-      marginTop: '-80px',
-      marginRight: '60px',
-      marginBottom: '40px',
-      textAlign: 'center',
-      backgroundColor: 'white',
-      border: '1px solid black',
-      padding: '20px',
-    }, tabletPortraitBreakpoint({
-      marginTop: '-125px',
-      marginRight: '0',
-    })];
+const containerRules = [{
+  marginTop: '-80px',
+  marginRight: '60px',
+  marginBottom: '40px',
+  textAlign: 'center',
+  backgroundColor: 'white',
+  border: '1px solid black',
+  padding: '20px',
+}, tabletPortraitBreakpoint({
+  marginTop: '-125px',
+  marginRight: '0',
+})];
 
-    return (
-      <Div css={rules}>{this.props.children}</Div>
-    );
-  }
+const titleRules = {
+  fontSize: "36px",
+  fontFamily: headingFamily,
+  margin: 0,
+  textTransform: 'uppercase'
+}
+
+function SectionHeader(props) {
+  return (
+    <Div css={containerRules}>
+      <H4 css={titleRules}>{props.title}</H4>
+    </Div>
+  );
 }
 
 export default SectionHeader;

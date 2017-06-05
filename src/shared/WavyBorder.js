@@ -9,10 +9,13 @@ class WavyBorder extends Component {
       borderImage: 'url("/wavy-border.svg") round',
       borderImageSlice: 8,
       borderImageWidth: '10px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'baseline',
     }, this.props.css];
       
     return (
-      <Div css={rules}>{this.props.children}</Div>
+      <Div css={[rules, this.props.css]}>{this.props.children}</Div>
     );
   }
 }

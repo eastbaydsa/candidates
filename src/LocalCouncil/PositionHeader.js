@@ -2,10 +2,11 @@ import React from 'react';
 import { H3, Div } from 'glamorous';
 import { headingFamily } from '../styles/fonts';
 
-const titleRules = {
+const containerRules = {
   position: 'relative',
   padding: '20px',
   margin: '0 0 40px 0',
+  alignSelf: 'stretch',
   
   background: 'black',
   color: 'white',
@@ -27,7 +28,7 @@ const shadowRules = {
 
 function PositionHeader(props) {
   return (
-    <H3 css={titleRules}>
+    <H3 css={containerRules}>
       {props.title} position
       <Div css={shadowRules}></Div>
     </H3>
