@@ -10,7 +10,7 @@ import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
 import NationalConventionIntro from './NationalConvention/Intro.js';
 import NationalConventionCandidates from './NationalConvention/Candidates.js';
 
-import electionData from './data/sample-data.json';
+import electionData from './data/election-data.json';
 
 class Election extends Component {
   constructor(props) {
