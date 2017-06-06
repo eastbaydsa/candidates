@@ -6,4 +6,8 @@ function tabletLandscapeBreakpoint(rules){
   return { '@media(min-width: 1024px)': rules }
 };
 
-export { tabletPortraitBreakpoint, tabletLandscapeBreakpoint };
+function desktopBreakpoint(rules){
+  return { '@media(min-width: 1200px)': rules }
+};
+
+export { tabletPortraitBreakpoint, tabletLandscapeBreakpoint, desktopBreakpoint };

@@ -10,6 +10,7 @@
     "google-spreadsheet-to-json": "^1.0.0",
     "jsonfile": "^3.0.0",
     "lorem-ipsum": "^1.0.4",
+    "now-serve": "^0.5.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
@@ -21,7 +22,7 @@
   },
   "devDependencies": {
     "concurrently": "^3.4.0",
-    "now": "^6.1.1",
+    "now": "^6.3.1",
     "now-cli": "0.0.0",
     "react-scripts": "1.0.5"
   },

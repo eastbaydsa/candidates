@@ -19,14 +19,40 @@ const containerRules = {
 
 const wavyBorderRules = [
   {
-    padding: '20px',
+    padding: '20px 20px 70px 20px',
     margin: '0 -20px',
   }, tabletPortraitBreakpoint({
     padding: '80px 200px 80px 80px',
     margin: 0,
   }),
   tabletLandscapeBreakpoint({
-    // padding: '80px 200px 8px 80px',
+    // padding: '80px 200px 80px 80px',
+  })
+];
+
+const imageRules = [
+  {
+    position: 'absolute',
+    width: '75px',
+    height: '75px',
+    borderRadius: '50%',
+    // top: '-170px',
+    top: '-120px',
+    right: '30px',
+    // left: '50%',
+    // transform: 'translate(-50%)',
+  },
+  tabletPortraitBreakpoint({
+    top: '95px',
+    right: '-10px',
+    width: '150px',
+    height: '150px',
+  }),
+  tabletLandscapeBreakpoint({
+    right: '-90px',
+    width: '260px',
+    bottom: '40px',
+    height: '260px',
   })
 ];
 
@@ -39,27 +65,6 @@ const Question = (props) => {
     <Span fontWeight="bold" textTransform="uppercase">{props.text} </Span>
   );
 }
-
-const imageRules = [
-  {
-    position: 'absolute',
-    width: '150px',
-    height: '150px',
-    borderRadius: '50%',
-    top: '-170px',
-    right: '-20px'
-  },
-  tabletPortraitBreakpoint({
-    top: '95px',
-    right: '-10px',
-  }),
-  tabletLandscapeBreakpoint({
-    right: '-90px',
-    width: '260px',
-    bottom: '40px',
-    height: '260px',
-  })
-];
 
 const Answer = (props) => { return <Span>{props.text}</Span> }
 

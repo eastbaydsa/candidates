@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { P } from 'glamorous';
-import { tabletPortraitBreakpoint } from '../styles/breakpoints';
+import { tabletPortraitBreakpoint, desktopBreakpoint } from '../styles/breakpoints';
 
 class Paragraph extends Component {
   render() {
     const rules = [{
-      textAlign: 'justify',
+      // textAlign: 'justify',
       margin: '0 0 20px 0',
-      lineHeight: '1.5',
+      lineHeight: '1.3',
       letterSpacing: '0.5px',
       fontSize: '16px',
+      hyphens: 'auto',
     }, tabletPortraitBreakpoint({
       fontSize: '18px',
+    }), desktopBreakpoint({
+      textAlign: 'justify',
     })];
       
     return (

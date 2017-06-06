@@ -6,14 +6,18 @@ import Paragraph from '../shared/Paragraph';
 import IntroHeader from '../shared/IntroHeader';
 import Container from '../shared/Container';
 
+import { tabletPortraitBreakpoint } from '../styles/breakpoints';
+
 const containerRules = {
   paddingTop: '150px',
   paddingBottom: '150px'
 }
 
-const wavyBorderRules = {
-  padding:' 40px 40px 20px 40px',
-}
+const wavyBorderRules = [{
+  padding:'40px 20px 20px 20px',
+}, tabletPortraitBreakpoint({
+  padding:'40px 40px 20px 40px',
+})];
 
 function Intro() {
   return (

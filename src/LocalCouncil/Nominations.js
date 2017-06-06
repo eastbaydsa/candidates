@@ -9,7 +9,7 @@ const containerRules = [{
     padding: '20px',
     backgroundColor: 'white',
     border: '1px solid black',
-    margin: '-20px 60px 0 0',
+    margin: '-70px 60px 0 0',
     position: 'relative',
     boxSizing: 'border-box',
   }, tabletPortraitBreakpoint({
@@ -17,7 +17,7 @@ const containerRules = [{
     margin: 0,
     top: '420px',
     right: '-10px',
-    width: '160px',
+    width: '180px',
   }),
   tabletLandscapeBreakpoint({
     right: '-90px',
@@ -33,7 +33,7 @@ const labelRules = [{
 }];
 
 const nameRules = {
-  marginBottom: 0
+  marginBottom: '7px',
 }
 
 function Nominations(props) {

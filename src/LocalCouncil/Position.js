@@ -12,12 +12,15 @@ import Index from '../shared/Index';
 
 import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 
-const wavyBorderRules = {
-  padding: '30px 40px'
-}
+const wavyBorderRules = [{
+  padding: '30px 20px',
+}, tabletPortraitBreakpoint({
+  padding: '30px 40px',
+})];
 
 const containerRules = {
   maxWidth: '600px',
+  marginBottom: '100px',
 }
 
 const candidateLinksRules = [{
@@ -25,7 +28,7 @@ const candidateLinksRules = [{
   border: '1px solid black',
   padding: '10px 0 10px',
   background: 'white',
-  marginRight: '-60px',
+  marginRight: '-34px',
   alignSelf: 'stretch',
 }, tabletPortraitBreakpoint({
   padding: '10px 40px',

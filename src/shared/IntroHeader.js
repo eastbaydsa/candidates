@@ -16,9 +16,9 @@ const containerRules = [{
 })];
 
 const titleRules = [{
-  margin: 0,
+  margin: '0 0 10px 0',
   fontSize: '22px',
-  lineHeight: '26px',
+  lineHeight: '1.2',
   fontFamily: headingFamily,
 }, tabletPortraitBreakpoint({
   fontSize: '28px',

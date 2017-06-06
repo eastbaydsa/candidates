@@ -6,7 +6,6 @@ import { headingFamily } from '../styles/fonts';
 
 const containerRules = [{
   marginTop: '-80px',
-  marginRight: '60px',
   marginBottom: '40px',
   textAlign: 'center',
   backgroundColor: 'white',
