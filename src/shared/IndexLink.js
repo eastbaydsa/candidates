@@ -8,9 +8,12 @@ const containerRules = {
   display: 'flex',
   alignItems: 'center',
   minHeight: '30px',
+  marginBottom: '5px',
+
   fontSize: '24px',
-  textTransform: 'uppercase',
   fontWeight: 700,
+  textTransform: 'uppercase',
+
   ":hover": {
     color: red0
   },

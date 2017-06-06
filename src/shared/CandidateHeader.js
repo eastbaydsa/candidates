@@ -12,6 +12,7 @@ const containerRules = [{
   backgroundColor: 'white',
   border: '1px solid black',
   padding: '20px',
+  alignSelf: 'stretch',
 }, tabletPortraitBreakpoint({
   marginTop: '-125px',
   marginRight: '0',

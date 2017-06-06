@@ -5,20 +5,24 @@ import { tabletPortraitBreakpoint, tabletLandscapeBreakpoint } from '../styles/b
 
 import Paragraph from '../shared/Paragraph';
 
-const wrapperRules = [{
+const containerRules = [{
     padding: '20px',
     backgroundColor: 'white',
     border: '1px solid black',
     margin: '-20px 60px 0 0',
+    position: 'relative',
+    boxSizing: 'border-box',
   }, tabletPortraitBreakpoint({
     position: 'absolute',
     margin: 0,
-    top: '170px',
+    top: '420px',
     right: '-10px',
     width: '160px',
   }),
   tabletLandscapeBreakpoint({
     right: '-90px',
+    top: '530px',
+    width: '260px',
   }),
 ];
 
@@ -28,12 +32,16 @@ const labelRules = [{
   margin: '0 0 10px 0'
 }];
 
+const nameRules = {
+  marginBottom: 0
+}
+
 function Nominations(props) {
   return (
-    <Div css={wrapperRules} >
+    <Div css={containerRules} >
       <H4 css={labelRules}>Nominated By:</H4>
       {props.nominations.map(nomination => {
-        return <Paragraph key={nomination} marginBottom="10px">{nomination}</Paragraph>
+        return <Paragraph key={nomination} css={nameRules}>{nomination}</Paragraph>
       })}
     </Div>
   );

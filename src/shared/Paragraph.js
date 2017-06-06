@@ -15,7 +15,7 @@ class Paragraph extends Component {
     })];
       
     return (
-      <P css={rules} {...this.props}>{this.props.children}</P>
+      <P css={[rules, this.props.css]}>{this.props.children}</P>
     );
   }
 }

@@ -12,6 +12,7 @@ class WavyBorder extends Component {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'baseline',
+      position: 'relative',
     }, this.props.css];
       
     return (

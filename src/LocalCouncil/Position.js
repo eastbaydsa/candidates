@@ -23,12 +23,14 @@ const containerRules = {
 const candidateLinksRules = [{
   position: 'relative',
   border: '1px solid black',
-  padding: '10px 40px',
-  margin: '40px -80px 60px 0',
-  left: '60px',
+  padding: '10px 0 10px',
   background: 'white',
+  marginRight: '-60px',
+  alignSelf: 'stretch',
 }, tabletPortraitBreakpoint({
-
+  padding: '10px 40px',
+  left: '60px',
+  margin: '20px -80px 40px 0',
 })];
 
 function Position(props) {
