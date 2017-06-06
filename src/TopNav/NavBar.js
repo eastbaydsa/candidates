@@ -20,7 +20,6 @@ class NavBar extends Component {
       justifyContent: 'center',
       alignItems: 'center',
       cursor: 'pointer',
-      borderRight: '1px solid black',
       marginLeft: '-20px',
       padding: '0 30px',
       ':hover': {
@@ -31,11 +30,19 @@ class NavBar extends Component {
       fontSize: '24px',
     })]
 
+    const menuRules = {
+      borderRight: '1px solid black',
+    }
+
+    const eventLinkRules = {
+      borderLeft: '1px solid black',
+    }
+
     return (
       <Div css={rules}>
-        <A css={linkRules} onClick={this.props.toggleMenu}>MENU</A>
+        <A css={[linkRules, menuRules]} onClick={this.props.toggleMenu}>MENU</A>
         <Div flex="1 1 0" />
-        <A css={linkRules} onClick={this.props.toggleMenu}>JOIN US</A>
+        <A css={[linkRules, eventLinkRules]} href="http://www.eastbaydsa.org/june_general_meeting" target="_blank">JOIN US</A>
       </Div>
     );
   }

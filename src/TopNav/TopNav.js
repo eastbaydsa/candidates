@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
-import { Nav } from 'glamorous';
+import { Nav, Div } from 'glamorous';
 import { topNavLayer } from '../styles/layers';
 
 import Index from '../shared/Index';
 import NavBar from './NavBar';
+
+const navRules = {
+  position: 'fixed',
+  top: '0',
+  backgroundColor: 'white',
+  borderBottom: '1px solid black',
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  zIndex: topNavLayer
+}
+
+const menuRules = {
+  borderTop: '1px solid black',
+  paddingTop: '10px',
+}
 
 class TopNav extends Component {
   constructor(props) {
@@ -43,22 +59,19 @@ class TopNav extends Component {
     this.setState({ isOpen: false });
   }
 
-  render() {
-    const rules = {
-      position: 'fixed',
-      top: '0',
-      backgroundColor: 'white',
-      borderBottom: '1px solid black',
-      width: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      zIndex: topNavLayer
-    }
-
+  renderMenu() {
     return (
-      <Nav css={rules} innerRef={this.storeElRef}>
+      <Div css={menuRules}>
+        <Index title="Your election packet" links={this.props.links} onAnyLinkClicked={this.closeMenu} />
+      </Div>
+    )
+  }
+
+  render() {
+    return (
+      <Nav css={navRules} innerRef={this.storeElRef}>
         <NavBar isOpen={this.state.isOpen} toggleMenu={this.toggleMenu} />
-        { this.state.isOpen ? <Index title="Your election packet" links={this.props.links} onAnyLinkClicked={this.closeMenu} /> : null }
+        { this.state.isOpen ? this.renderMenu() : null }
       </Nav>
     );
   }

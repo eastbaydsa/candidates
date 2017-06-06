@@ -23,7 +23,7 @@ class Election extends Component {
 
   navLinks() {
     return [
-      { label: 'Introduction', to: '#intro' },
+      { label: 'Introduction', to: 'intro' },
       ...this.state.localCouncilElectionStore.positions().map((position) => {
         return { label: position.title, to: position.slug }
       }),

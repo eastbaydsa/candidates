@@ -2,6 +2,7 @@ import React from 'react';
 import { Div, H1, H2, H3 } from 'glamorous';
 import smoothScroll from 'smooth-scroll';
 
+import NavAnchor from './shared/NavAnchor';
 import { red0, grayDark } from './styles/colors';
 import { headingFamily } from './styles/fonts';
 import { headerHeight } from './styles/layout';
@@ -64,22 +65,24 @@ function scrollToIntro() {
 
 function Cover() {
   return (
-    <Div css={outerContainerRules} onClick={scrollToIntro}>
-        <H1 css={titleRules}>
-          <div>General </div>
-          <div>Meeting </div>
-          <div>Voting </div>
-          <div>Guide </div>
-        </H1>
-        <H2 css={subtitleRules}>
-          <div>East Bay</div>
-          <div>Democratic </div>
-          <div>Socialists</div>
-          <div>of America</div>
-          <Div css={gradientRules}></Div>
-        </H2>
-        <H3 css={yearRules}>2017</H3>
-    </Div>
+    <NavAnchor id="">
+      <Div css={outerContainerRules} onClick={scrollToIntro}>
+          <H1 css={titleRules}>
+            <div>General </div>
+            <div>Meeting </div>
+            <div>Voting </div>
+            <div>Guide </div>
+          </H1>
+          <H2 css={subtitleRules}>
+            <div>East Bay</div>
+            <div>Democratic </div>
+            <div>Socialists</div>
+            <div>of America</div>
+            <Div css={gradientRules}></Div>
+          </H2>
+          <H3 css={yearRules}>2017</H3>
+      </Div>
+    </NavAnchor>
   );
 }
 
