@@ -26,11 +26,11 @@ const dashRules = {
   margin: '0 10px',
 }
 
-export default function IndexLink(props) {
+function IndexLink(props) {
   const prefix = props.number >= 10 ? '' : '0';
 
   return (
-    <Link to={props.to}>
+    <Link to={props.to} onClick={props.onClick}>
       <Div css={containerRules}>
         <span>{props.label}</span>
         <Span css={dashRules}></Span>
@@ -39,3 +39,5 @@ export default function IndexLink(props) {
     </Link>
   );
 }
+
+export default IndexLink;

@@ -11,7 +11,7 @@ class TopNav extends Component {
     this.state = {
       isOpen: false
     };
-    ['toggleMenu', 'storeElRef', 'closeIfClickOutside'].forEach((fn) => { this[fn] = this[fn].bind(this); });
+    ['toggleMenu', 'closeMenu', 'storeElRef', 'closeIfClickOutside'].forEach((fn) => { this[fn] = this[fn].bind(this); });
   }
 
   componentDidMount() {
@@ -31,11 +31,16 @@ class TopNav extends Component {
     if (this.state.el === event.target || this.state.el.contains(event.target)) {
       return;
     }
-    this.close();
+    this.closeMenu();
   }
 
   toggleMenu() {
     this.setState({ isOpen: !this.state.isOpen });
+  }
+
+  closeMenu() {
+    console.log('close menu!')
+    this.setState({ isOpen: false });
   }
 
   render() {
@@ -53,7 +58,7 @@ class TopNav extends Component {
     return (
       <Nav css={rules} innerRef={this.storeElRef}>
         <NavBar isOpen={this.state.isOpen} toggleMenu={this.toggleMenu} />
-        { this.state.isOpen ? <Index title="Your election packet" links={this.props.links} /> : null }
+        { this.state.isOpen ? <Index title="Your election packet" links={this.props.links} onAnyLinkClicked={this.closeMenu} /> : null }
       </Nav>
     );
   }

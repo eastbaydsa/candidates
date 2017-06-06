@@ -21,6 +21,7 @@ const wavyBorderRules = [{
 const containerRules = {
   maxWidth: '600px',
   marginBottom: '100px',
+  paddingTop: '100px',
 }
 
 const candidateLinksRules = [{

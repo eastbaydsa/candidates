@@ -15,13 +15,15 @@ const titleRules = {
   margin: '0 0 10px 0'
 }
 
-export default function Index(props) {
+function Index(props) {
   return (
     <Div css={rules}>
       <H5 css={titleRules}>{props.title}</H5>
       {props.links.map((link, i) => {
-        return <IndexLink number={i+1} key={link.to} {...link}></IndexLink>
+        return <IndexLink number={i+1} onClick={props.onAnyLinkClicked} key={link.to} {...link}></IndexLink>
       })}
     </Div>
   );
 }
+
+export default Index;
