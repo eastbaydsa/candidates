@@ -73,7 +73,7 @@ function Candidate(props) {
     <NavAnchor id={props.slug}>
       <Container css={containerRules}>
         <WavyBorder css={wavyBorderRules}>
-          <Image {...props} />
+          {props.imageUrl ? <Image {...props} /> : null}
           <CandidateHeader title={props.name} />
           <Paragraph>
             <Question text="Please describe your involvement in East Bay DSA" />

@@ -23,7 +23,7 @@ function candidatesFromGS(position, candidateData, nominationData) {
             candidates.push({
                 name: item["firstAndLastName"],
                 slug: candidateSlug(position, item["firstAndLastName"]),
-                imageUrl: fakeData.image(),
+                imageUrl: undefined,
                 involvement: item["pleaseDescribeYourInvolvementInEastBayDsa."],
                 qualifications: item["whyAreYouQualifiedForThisSpecificRole?"],
                 goals: item["whatDoYouHopeToAccomplishForTheChapterIfElectedToThisRole?"],
