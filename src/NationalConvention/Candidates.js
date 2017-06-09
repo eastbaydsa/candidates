@@ -1,14 +1,19 @@
 import React from 'react';
+
 import Candidate from './Candidate';
-import Section from '../shared/Section';
+import Container from '../shared/Container';
+
+const containerRules = {
+  paddingBottom: '150px'
+}
 
 function Candidates(props) {
   return (
-    <Section tier={4}>
+    <Container css={containerRules}>
       {props.candidates.map(candidate => {
         return <Candidate key={candidate.name} {...candidate} />
       })}
-    </Section>
+    </Container>
   );
 }
 

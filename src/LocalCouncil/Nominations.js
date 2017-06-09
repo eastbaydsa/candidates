@@ -41,7 +41,7 @@ function Nominations(props) {
     <Div css={containerRules} >
       <H4 css={labelRules}>Nominated By:</H4>
       {props.nominations.map((nomination, i) => {
-        return <Paragraph key={nomination.name + i} css={nameRules}>{nomination.name}</Paragraph>
+        return <Paragraph key={`${nomination.name}-${i}`} css={nameRules}>{nomination.name}</Paragraph>
       })}
     </Div>
   );

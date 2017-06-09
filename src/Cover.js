@@ -59,7 +59,7 @@ const gradientRules = {
 }
 
 function scrollToIntro() {
-  const intro = document.querySelector('#intro');
+  const intro = document.querySelector('#toc');
   smoothScroll.animateScroll(intro);
 }
 

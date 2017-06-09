@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Nav, Div } from 'glamorous';
+import React from 'react';
 
 import Index from './shared/Index';
 import Container from './shared/Container';

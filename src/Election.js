@@ -17,7 +17,7 @@ class Election extends Component {
     super(props);
     this.state = {
       localCouncilElectionStore: new LocalCouncilElectionStore(electionData.localCouncil),
-      nationalConventionCandidates: []
+      nationalConventionCandidates: electionData.nationalConvention.candidates
     };
   }
 

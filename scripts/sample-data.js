@@ -13,7 +13,7 @@ const data = serialize({
     "At Large Member of Local Council": Array(5).fill().map(() => fakeData.candidate('At Large Member of Local Council')),
   },
   nationalConvention: {
-    candidates: Array(30).fill().map(() => fakeData.candidate('National Convention'))
+    candidates: Array(30).fill().map(() => { return fakeData.candidate('National Convention') })
   }
 });
 

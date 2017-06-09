@@ -55,7 +55,6 @@ class TopNav extends Component {
   }
 
   closeMenu() {
-    console.log('close menu!')
     this.setState({ isOpen: false });
   }
 
