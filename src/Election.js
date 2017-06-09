@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import TopNav from './TopNav/TopNav';
-
 import Cover from './Cover.js';
+import TOC from './TOC.js';
 import LocalCouncilIntro from './LocalCouncil/Intro.js';
 import LocalCouncilPosition from './LocalCouncil/Position.js';
 import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
@@ -27,7 +27,7 @@ class Election extends Component {
       ...this.state.localCouncilElectionStore.positions().map((position) => {
         return { label: position.title, to: position.slug }
       }),
-      { label: 'DSA National Convention Delegates', to: '#dsa-national-convention-delegates' },
+      { label: 'DSA National Convention Delegates', to: 'dsa-national-convention-delegates' },
     ]
   }
 
@@ -38,6 +38,7 @@ class Election extends Component {
       <div>
         <TopNav links={links} />
         <Cover />
+        <TOC links={links} />
         <LocalCouncilIntro />
         {this.state.localCouncilElectionStore.positions().map(position => {
           return <LocalCouncilPosition key={position.slug} {...position} />
