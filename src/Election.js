@@ -10,6 +10,8 @@ import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
 import NationalConventionIntro from './NationalConvention/Intro.js';
 import NationalConventionCandidates from './NationalConvention/Candidates.js';
 
+import EventDetails from './shared/EventDetails.js';
+
 import electionData from './data/election-data.json';
 
 class Election extends Component {
@@ -27,7 +29,7 @@ class Election extends Component {
       ...this.state.localCouncilElectionStore.positions().map((position) => {
         return { label: position.title, to: position.slug }
       }),
-      { label: 'DSA National Convention Delegates', to: 'dsa-national-convention-delegates' },
+      // { label: 'DSA National Convention Delegates', to: 'dsa-national-convention-delegates' },
     ]
   }
 
@@ -43,8 +45,9 @@ class Election extends Component {
         {this.state.localCouncilElectionStore.positions().map(position => {
           return <LocalCouncilPosition key={position.slug} {...position} />
         })}
-        <NationalConventionIntro />
-        <NationalConventionCandidates candidates={this.state.nationalConventionCandidates} />
+        {/*<NationalConventionIntro />*/}
+        {/*<NationalConventionCandidates candidates={this.state.nationalConventionCandidates} />*/}
+        <EventDetails />
       </div>
     );
   }
