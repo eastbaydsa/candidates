@@ -11,6 +11,7 @@ import NationalConventionIntro from './NationalConvention/Intro.js';
 import NationalConventionCandidates from './NationalConvention/Candidates.js';
 
 import EventDetails from './shared/EventDetails.js';
+import ElectionRules from './shared/ElectionRules.js';
 
 import electionData from './data/election-data.json';
 
@@ -30,6 +31,7 @@ class Election extends Component {
         return { label: position.title, to: position.slug }
       }),
       // { label: 'DSA National Convention Delegates', to: 'dsa-national-convention-delegates' },
+      { label: 'Election Rules', to: 'election-rules' },
     ]
   }
 
@@ -47,6 +49,8 @@ class Election extends Component {
         })}
         {/*<NationalConventionIntro />*/}
         {/*<NationalConventionCandidates candidates={this.state.nationalConventionCandidates} />*/}
+        <EventDetails />
+        <ElectionRules />
         <EventDetails />
       </div>
     );
