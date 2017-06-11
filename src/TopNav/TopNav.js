@@ -4,6 +4,7 @@ import { topNavLayer } from '../styles/layers';
 
 import Index from '../shared/Index';
 import NavBar from './NavBar';
+import CurrentLocation from './CurrentLocation';
 
 const navRules = {
   position: 'fixed',
@@ -71,6 +72,7 @@ class TopNav extends Component {
       <Nav css={navRules} innerRef={this.storeElRef}>
         <NavBar isOpen={this.state.isOpen} toggleMenu={this.toggleMenu} />
         { this.state.isOpen ? this.renderMenu() : null }
+        <CurrentLocation links={this.props.links} currentSection={this.props.currentSection} />
       </Nav>
     );
   }

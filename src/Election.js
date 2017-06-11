@@ -26,16 +26,12 @@ class Election extends Component {
     ]
   }
 
-  currentPlace() {
-    // console.log(this.props.match.params)
-  }
-
   render() {
     const links = this.navLinks();
 
     return (
       <div>
-        <TopNav links={links} {...this.currentPlace()} />
+        <TopNav links={links} currentSection={this.props.match.params.section} />
         <Cover />
         <TOC links={links} />
         <LocalCouncilIntro />

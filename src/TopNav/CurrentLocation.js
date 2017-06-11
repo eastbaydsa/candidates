@@ -1,8 +1,9 @@
 import React from 'react';
-import { Div, A } from 'glamorous';
-import { headerHeight } from '../styles/layout';
+import { Div, Span } from 'glamorous';
+import { Link } from 'react-router-dom';
 
 import { tabletPortraitBreakpoint } from '../styles/breakpoints';
+import { headerHeight } from '../styles/layout';
 
 const rules = {
   display: 'flex',
@@ -36,14 +37,22 @@ const eventLinkRules = {
   borderLeft: '1px solid black',
 }
 
-function NavBar(props) {
+function CurrentLocation(props) {
+  const currentLinkPath = `/${props.currentSection}`;
+  let currentLink = props.links.find(l => l.to === currentLinkPath);
+  if (currentLink === undefined) { currentLink = {} }
+
   return (
     <Div css={rules}>
-      <A css={[linkRules, menuRules]} onClick={props.toggleMenu}>MENU</A>
+      <Link to={currentLink.to}>
+        <Span css={[linkRules, menuRules]}>{currentLink.label}</Span>
+      </Link>
       <Div flex="1 1 0" />
-      <A css={[linkRules, eventLinkRules]} href="http://www.eastbaydsa.org/june_general_meeting" target="_blank">JOIN US</A>
+      {/*<Link>
+        <Span css={[linkRules, eventLinkRules]}>JOIN US</Span>
+      </Link>*/}
     </Div>
   );
 }
 
-export default NavBar;
+export default CurrentLocation;
