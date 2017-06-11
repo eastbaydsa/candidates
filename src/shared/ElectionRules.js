@@ -33,7 +33,7 @@ function ElectionRules() {
     <NavAnchor id="election-rules">
       <Container css={containerRules}>
         <WavyBorder css={wavyBorderRules}>
-          <IntroHeader title="Election rules" />
+          <IntroHeader title="Election Rules" />
           <Paragraph>For this special election meeting, the East Bay DSA Local Council has appointed an elections committee to prepare this website and oversee our elections. The committee is Frances Reade, Jess Dervin-Ackerman, Megan Svoboda, and Michael Kaufman.</Paragraph>
           <Paragraph>The Elections Committee has followed the rules and regulations of our East Bay DSA bylaws, which may be found at <a href="http://www.eastbaydsa.org/bylaws" target="_blank">http://www.eastbaydsa.org/bylaws.</a></Paragraph>
           <Paragraph css={subheadRules}>Rules and Regulations for Voters</Paragraph>
