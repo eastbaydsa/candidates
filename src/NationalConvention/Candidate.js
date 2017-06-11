@@ -1,12 +1,16 @@
 import React from 'react';
+import { Div } from 'glamorous';
+
 import QA from '../shared/QA';
 
 function Candidate(props) {
   return (
-    <QA
-      question={props.name}
-      answer={props.involvement}
-    />
+    <Div>
+      <QA
+        question={props.name}
+        answer={props.involvement}
+      />
+    </Div>
   );
 }
 

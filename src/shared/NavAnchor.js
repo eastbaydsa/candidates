@@ -17,7 +17,7 @@ class NavAnchor extends Component {
 
   render() {
     return (
-      <Waypoint scrollableAncestor={window} topOffset={'40%'} bottomOffset={'40%'} onEnter={this.updateBrowserHistory}>
+      <Waypoint scrollableAncestor={window} topOffset={'40%'} bottomOffset={'40%'} onEnter={this.updateBrowserHistory} fireOnRapidScroll={false}>
         <div id={this.props.id}>
           {this.props.children}
         </div>
