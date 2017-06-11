@@ -55,7 +55,7 @@ const Image = (props) => {
 
 function Candidate(props) {
   return (
-    <NavAnchor id={props.slug}>
+    <NavAnchor section={props.section} candidate={props.slug}>
       <Container css={containerRules}>
         <WavyBorder css={wavyBorderRules}>
           {props.imageUrl ? <Image {...props} /> : null}

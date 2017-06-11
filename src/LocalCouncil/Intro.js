@@ -1,5 +1,5 @@
 import React from 'react';
-import { Span, Div } from 'glamorous';
+import { Span } from 'glamorous';
 
 import NavAnchor from '../shared/NavAnchor';
 import WavyBorder from '../shared/WavyBorder';
@@ -24,7 +24,7 @@ const wavyBorderRules = [{
 
 function Intro() {
   return (
-    <NavAnchor id="intro">
+    <NavAnchor section="intro">
       <Container css={containerRules}>
         <WavyBorder css={wavyBorderRules}>
           <IntroHeader title="Welcome to a Summer of Historic Elections for Socialism in America and the East Bay" />

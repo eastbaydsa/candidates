@@ -5,8 +5,9 @@ import Election from './Election.js';
 function App() {
   return (
     <Switch>
-      <Route path="/" component={Election} />
+      <Route path="/:section/:candidate" component={Election} />
       <Route path="/:section" component={Election} />
+      <Route path="/" component={Election} />
     </Switch>
   );
 }

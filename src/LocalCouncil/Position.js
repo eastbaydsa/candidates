@@ -39,12 +39,12 @@ const candidateLinksRules = [{
 
 function Position(props) {
   const candidateLinks = props.candidates.map(candidate => {
-    return { to: candidate.slug, label: candidate.name }
+    return { to: `/${props.slug}/${candidate.slug}`, label: candidate.name }
   });
 
   return (
     <div>
-      <NavAnchor tier={0} id={props.slug}>
+      <NavAnchor section={props.slug}>
         <Container css={containerRules}>
           <WavyBorder css={wavyBorderRules}>
             <PositionHeader title={props.title}></PositionHeader>
@@ -56,7 +56,7 @@ function Position(props) {
         </Container>
       </NavAnchor>
       {props.candidates.map(candidate => {
-        return <Candidate key={candidate.name} {...candidate} />
+        return <Candidate key={candidate.name} section={props.slug} {...candidate} />
       })}
     </div>
   );

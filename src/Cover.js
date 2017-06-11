@@ -65,7 +65,7 @@ function scrollToIntro() {
 
 function Cover() {
   return (
-    <NavAnchor id="">
+    <NavAnchor>
       <Div css={outerContainerRules} onClick={scrollToIntro}>
           <H1 css={titleRules}>
             <div>General </div>

@@ -22,7 +22,7 @@ const wavyBorderRules = [{
 class Intro extends Component {
   render() {
     return (
-      <NavAnchor id={'dsa-national-convention-delegates'}>
+      <NavAnchor section={'dsa-national-convention-delegates'}>
         <Container css={containerRules}>
           <WavyBorder css={wavyBorderRules}>
             <IntroHeader title="DSA National Convention Delegates" />

@@ -7,8 +7,8 @@ import LocalCouncilIntro from './LocalCouncil/Intro.js';
 import LocalCouncilPosition from './LocalCouncil/Position.js';
 import LocalCouncilElectionStore from './stores/LocalCouncilElectionStore.js';
 
-import NationalConventionIntro from './NationalConvention/Intro.js';
-import NationalConventionCandidates from './NationalConvention/Candidates.js';
+// import NationalConventionIntro from './NationalConvention/Intro.js';
+// import NationalConventionCandidates from './NationalConvention/Candidates.js';
 
 import EventDetails from './shared/EventDetails.js';
 import ElectionRules from './shared/ElectionRules.js';
@@ -26,13 +26,17 @@ class Election extends Component {
 
   navLinks() {
     return [
-      { label: 'Introduction', to: 'intro' },
+      { label: 'Introduction', to: '/intro' },
       ...this.state.localCouncilElectionStore.positions().map((position) => {
-        return { label: position.title, to: position.slug }
+        return { label: position.title, to: `/${position.slug}` }
       }),
-      // { label: 'DSA National Convention Delegates', to: 'dsa-national-convention-delegates' },
-      { label: 'Election Rules', to: 'election-rules' },
+      // { label: 'DSA National Convention Delegates', to: '/dsa-national-convention-delegates' },
+      { label: 'Election Rules', to: '/election-rules' },
     ]
+  }
+
+  currentPlace() {
+    // console.log(this.props.match.params)
   }
 
   render() {
@@ -40,7 +44,7 @@ class Election extends Component {
 
     return (
       <div>
-        <TopNav links={links} />
+        <TopNav links={links} {...this.currentPlace()} />
         <Cover />
         <TOC links={links} />
         <LocalCouncilIntro />

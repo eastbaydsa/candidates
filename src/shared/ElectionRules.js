@@ -1,12 +1,10 @@
 import React from 'react';
-import { Span, Div } from 'glamorous';
 
 import NavAnchor from './NavAnchor';
 import WavyBorder from './WavyBorder';
 import Paragraph from './Paragraph';
 import IntroHeader from './IntroHeader';
 import Container from './Container';
-import EventDetails from './EventDetails';
 
 import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 import { headingFamily } from '../styles/fonts';
@@ -30,12 +28,12 @@ const subheadRules = {
 
 function ElectionRules() {
   return (
-    <NavAnchor id="election-rules">
+    <NavAnchor section="election-rules">
       <Container css={containerRules}>
         <WavyBorder css={wavyBorderRules}>
           <IntroHeader title="Election Rules" />
           <Paragraph>For this special election meeting, the East Bay DSA Local Council has appointed an elections committee to prepare this website and oversee our elections. The committee is Frances Reade, Jess Dervin-Ackerman, Megan Svoboda, and Michael Kaufman.</Paragraph>
-          <Paragraph>The Elections Committee has followed the rules and regulations of our East Bay DSA bylaws, which may be found at <a href="http://www.eastbaydsa.org/bylaws" target="_blank">http://www.eastbaydsa.org/bylaws.</a></Paragraph>
+          <Paragraph>The Elections Committee has followed the rules and regulations of our East Bay DSA bylaws, which may be found at <a href="http://www.eastbaydsa.org/bylaws" target="_blank" rel="noopener noreferrer">http://www.eastbaydsa.org/bylaws.</a></Paragraph>
           <Paragraph css={subheadRules}>Rules and Regulations for Voters</Paragraph>
           <Paragraph>All members who joined DSA on or before May 25, 2017, and whose dues are current may vote in our elections.</Paragraph>
           <Paragraph>Any voting member who is present at the June 24 election may carry up to two signed proxy forms (included in this packet) from non-present, eligible DSA members based on rule 1 above. That present member may cast ballots for themselves and on behalf of the one or two proxy-identified members.</Paragraph>

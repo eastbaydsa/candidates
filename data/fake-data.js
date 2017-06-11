@@ -14,7 +14,7 @@ function candidate(position) {
   const name = fakeName();
   return {
     name: name,
-    slug: candidateSlug(position, name),
+    slug: candidateSlug(name),
     imageUrl: faker.image.avatar(),
     involvement: loremIpsum({ count: randomBetween(1, 3), units: 'paragraphs' }),
     qualifications: loremIpsum({ count: randomBetween(1, 2), units: 'paragraphs' }),

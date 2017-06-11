@@ -22,7 +22,7 @@ function candidatesFromGS(position, candidateData, nominationData) {
 	    }
             candidates.push({
                 name: item["firstAndLastName"],
-                slug: candidateSlug(position, item["firstAndLastName"]),
+                slug: candidateSlug(item["firstAndLastName"]),
                 imageUrl: undefined,
                 involvement: item["pleaseDescribeYourInvolvementInEastBayDsa."],
                 qualifications: item["whyAreYouQualifiedForThisSpecificRole?"],
@@ -52,7 +52,7 @@ function delegatesFromGS(delegateData, delegateNominationData) {
 	    }
             delegates.push({
                 name: item["what'sYourName?"],
-                slug: candidateSlug("Delegate", item["what'sYourName?"]),
+                slug: candidateSlug(item["what'sYourName?"]),
                 imageUrl: fakeData.image(),
                 reason: item["whyDoYouWantToRepresentYourComradesAtTheDsaNationalConvention?"],
 		nominations: nominations,

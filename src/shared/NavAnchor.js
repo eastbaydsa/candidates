@@ -10,15 +10,16 @@ class NavAnchor extends Component {
   }
 
   updateBrowserHistory() {
-    if (this.props.id === undefined) { return }
-    const currentPath = `/${this.props.id}`
+    if (this.props.section === undefined) { return }
+    const currentPath = ['', this.props.section, this.props.candidate].join('/');
     this.context.router.history.replace(currentPath, { scroll: false });
   }
 
   render() {
+    const id = [this.props.section, this.props.candidate].filter(n => n).join('-');
     return (
       <Waypoint scrollableAncestor={window} topOffset={'40%'} bottomOffset={'40%'} onEnter={this.updateBrowserHistory} fireOnRapidScroll={false}>
-        <div id={this.props.id}>
+        <div id={id}>
           {this.props.children}
         </div>
       </Waypoint>
@@ -31,7 +32,8 @@ NavAnchor.contextTypes = {
 };
 
 NavAnchor.propTypes = {
-  id: PropTypes.string,
+  section: PropTypes.string,
+  candidate: PropTypes.string,
 }
 
 export default NavAnchor;

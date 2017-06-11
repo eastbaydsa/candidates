@@ -10,7 +10,7 @@ const containerRules = {
 }
 function TOC(props) {
   return (
-    <NavAnchor id="toc">
+    <NavAnchor section="toc">
       <Container css={containerRules}>
         <Index title="Your election packet" links={props.links} />
       </Container>

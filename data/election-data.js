@@ -73,8 +73,8 @@ function serialize(data) {
   }
 }
 
-function candidateSlug(position, candidateName) {
-  return [position, candidateName].reduce((acc, phrase = '') => {
+function candidateSlug(candidateName) {
+  return [candidateName].reduce((acc, phrase = '') => {
     return acc.concat(phrase.split(' '))
   }, []).join('-').toLowerCase();
 }
