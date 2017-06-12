@@ -6,9 +6,10 @@ const fakeData = require('../data/fake-data');
 function candidatesFromGS(position, candidatesData, nominationData) {
   return candidatesData
     .filter(c => c["whichPositionAreYouRunningFor?"] === position)
-    .map((item) => {
+    .map((candidate) => {
       const nominations = nominationData
-        .filter(n => n["whoAreYouNominating?YouMayMakeOneNominationPerFormSubmission."] === item["firstAndLastName"])
+        .filter(n => candidate["firstAndLastName"] === n["whoAreYouNominating?YouMayMakeOneNominationPerFormSubmission."])
+        .filter(n => candidate["whichPositionAreYouRunningFor?"] === n["whatPositionAreYouNominatingThemFor?"])
         .map((nomination) => {
           return {
             name: nomination["firstAndLastName"],
@@ -17,12 +18,12 @@ function candidatesFromGS(position, candidatesData, nominationData) {
         });
 
       return {
-        name: item["firstAndLastName"],
-        slug: candidateSlug(item["firstAndLastName"]),
+        name: candidate["firstAndLastName"],
+        slug: candidateSlug(candidate["firstAndLastName"]),
         imageUrl: undefined,
-        involvement: item["pleaseDescribeYourInvolvementInEastBayDsa."],
-        qualifications: item["whyAreYouQualifiedForThisSpecificRole?"],
-        goals: item["whatDoYouHopeToAccomplishForTheChapterIfElectedToThisRole?"],
+        involvement: candidate["pleaseDescribeYourInvolvementInEastBayDsa."],
+        qualifications: candidate["whyAreYouQualifiedForThisSpecificRole?"],
+        goals: candidate["whatDoYouHopeToAccomplishForTheChapterIfElectedToThisRole?"],
         nominations: nominations,
       }
     })
@@ -32,7 +33,7 @@ function delegatesFromGS(delegatesData, delegateNominationsData) {
   return delegatesData
     .map((delegate) => {
       const nominations = delegateNominationsData
-        .filter(n => n["whoAreYouNominating?"] === delegate["what'sYourName?"])
+        .filter(n => delegate["what'sYourName?"] === n["whoAreYouNominating?"])
         .map((nomination) => {
           return {
             name: nomination["yourName"],
