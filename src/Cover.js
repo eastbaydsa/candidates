@@ -5,15 +5,15 @@ import smoothScroll from 'smooth-scroll';
 import NavAnchor from './shared/NavAnchor';
 import { red0, grayDark } from './styles/colors';
 import { headingFamily } from './styles/fonts';
-import { headerHeight } from './styles/layout';
+import { coverLayer } from './styles/layers';
 
 const outerContainerRules = {
   position: 'relative',
+  zIndex: coverLayer,
   backgroundColor: grayDark,
   color: red0,
   border: `10px solid ${red0}`,
-  marginTop: '60px',
-  minHeight: `calc(95vh - ${headerHeight})`,
+  minHeight: `calc(95vh)`,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'stretch',

@@ -2,55 +2,78 @@ import React from 'react';
 import { Div, Span } from 'glamorous';
 import { Link } from 'react-router-dom';
 
-import { tabletPortraitBreakpoint } from '../styles/breakpoints';
-import { headerHeight } from '../styles/layout';
+import { tabletLandscapeBreakpoint } from '../styles/breakpoints';
 
-const rules = {
+const containerRules = [{
+  display: 'none',
+  alignItems: 'stretch',
+  borderTop: '1px solid black'
+}, tabletLandscapeBreakpoint({
   display: 'flex',
-  paddingLeft: '20px',
-  height: headerHeight,
-}
+})];
 
-const linkRules = [{
-  fontSize: '18px',
-  fontWeight: '700',
+const linkStyles = {
+  flex: '1 1 0',
+  display: 'flex',
+  alignItems: 'stretch',
+};
+
+const sectionLabelRules = {
+  fontSize: '16px',
   color: 'black',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
   cursor: 'pointer',
-  marginLeft: '-20px',
-  padding: '0 30px',
+  padding: '5px 10px',
+  flex: '1 1 0',
+  textTransform: 'uppercase',
+  fontWeight: '700',
+  margin: '0',
+  lineHeight: '1.3',
+  letterSpacing: '0.5px',
   ':hover': {
     backgroundColor: 'red',
     color: 'white'
   }
-}, tabletPortraitBreakpoint({
-  fontSize: '24px',
-})]
+};
 
-const menuRules = {
-  borderRight: '1px solid black',
+const navigationLabelRules = {
+  display: 'block',
+  fontWeight: 'normal',
+  fontSize: '14px',
 }
 
-const eventLinkRules = {
+const currentRules = {
+  borderRight: '1px solid black',
   borderLeft: '1px solid black',
 }
 
 function CurrentLocation(props) {
-  const currentLinkPath = `/${props.currentSection}`;
-  let currentLink = props.links.find(l => l.to === currentLinkPath);
-  if (currentLink === undefined) { currentLink = {} }
+  const currentSectionPath = `/${props.currentSection}`;
+  let currentSectionLink = props.links.find(l => l.to === currentSectionPath);
+  const currentSectionIndex = props.links.indexOf(currentSectionLink);
+  const nextSectionLink = props.links[currentSectionIndex + 1];
+  const previousSectionLink = props.links[currentSectionIndex - 1];
+  if (currentSectionLink === undefined) { currentSectionLink = {} }
 
   return (
-    <Div css={rules}>
-      <Link to={currentLink.to}>
-        <Span css={[linkRules, menuRules]}>{currentLink.label}</Span>
-      </Link>
-      <Div flex="1 1 0" />
-      {/*<Link>
-        <Span css={[linkRules, eventLinkRules]}>JOIN US</Span>
-      </Link>*/}
+    <Div css={containerRules}>
+      {previousSectionLink ? <Link style={linkStyles} to={previousSectionLink.to}>
+        <Span css={sectionLabelRules}>
+          <Span css={navigationLabelRules}>Go to previous section</Span>
+          {previousSectionLink.label}
+        </Span>
+      </Link> : <Span style={linkStyles}/>}
+      {currentSectionLink.to ? <Link style={linkStyles} to={currentSectionLink.to}>
+        <Span css={[sectionLabelRules, currentRules]}>
+          <Span css={navigationLabelRules}>Current section </Span>
+          {currentSectionLink.label}
+        </Span>
+      </Link> : <Span style={linkStyles} css={currentRules} />}
+      {nextSectionLink ? <Link style={linkStyles} to={nextSectionLink.to}>
+        <Span css={sectionLabelRules}>
+          <Span css={navigationLabelRules}>Go to next section </Span>
+          {nextSectionLink.label}
+        </Span>
+      </Link> : <Span style={linkStyles}/>}
     </Div>
   );
 }

@@ -5,7 +5,6 @@ import { tabletPortraitBreakpoint, desktopBreakpoint } from '../styles/breakpoin
 class Paragraph extends Component {
   render() {
     const rules = [{
-      // textAlign: 'justify',
       margin: '0 0 20px 0',
       lineHeight: '1.3',
       letterSpacing: '0.5px',
