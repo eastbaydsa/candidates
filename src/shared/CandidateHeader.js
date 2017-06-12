@@ -1,5 +1,5 @@
 import React from 'react';
-import { Div, H4 } from 'glamorous';
+import { Div, H4, H5 } from 'glamorous';
 
 import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 import { headingFamily } from '../styles/fonts';
@@ -21,13 +21,21 @@ const titleRules = {
   fontSize: "36px",
   fontFamily: headingFamily,
   margin: 0,
-  textTransform: 'uppercase'
+  textTransform: 'uppercase',
+  lineHeight: '1',
 }
+
+const subtitleRules = {
+  margin: 0,
+  fontWeight: 'normal',
+  letterSpacing: '0.5px',
+};
 
 function SectionHeader(props) {
   return (
     <Div css={containerRules}>
       <H4 css={titleRules}>{props.title}</H4>
+      <H5 css={subtitleRules}>{props.subtitle}</H5>
     </Div>
   );
 }

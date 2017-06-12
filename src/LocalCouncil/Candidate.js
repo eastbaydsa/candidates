@@ -59,7 +59,7 @@ function Candidate(props) {
       <Container css={containerRules}>
         <WavyBorder css={wavyBorderRules}>
           {props.imageUrl ? <Image {...props} /> : null}
-          <CandidateHeader title={props.name} />
+          <CandidateHeader title={props.name} subtitle={`${props.positionTitle} Nominee`}/>
           <QA
             question="Please describe your involvement in East Bay DSA"
             answer={props.involvement}

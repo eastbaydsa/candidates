@@ -56,7 +56,7 @@ function Position(props) {
         </Container>
       </NavAnchor>
       {props.candidates.map(candidate => {
-        return <Candidate key={candidate.name} section={props.slug} {...candidate} />
+        return <Candidate key={candidate.name} section={props.slug} positionTitle={props.title} {...candidate} />
       })}
     </div>
   );
