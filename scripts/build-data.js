@@ -20,7 +20,6 @@ function candidatesFromGS(position, candidatesData, nominationData) {
       return {
         name: candidate["firstAndLastName"],
         slug: candidateSlug(candidate["firstAndLastName"]),
-        imageUrl: undefined,
         involvement: candidate["pleaseDescribeYourInvolvementInEastBayDsa."],
         qualifications: candidate["whyAreYouQualifiedForThisSpecificRole?"],
         goals: candidate["whatDoYouHopeToAccomplishForTheChapterIfElectedToThisRole?"],

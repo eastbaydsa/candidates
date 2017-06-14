@@ -50,7 +50,7 @@ const imageRules = [
 ];
 
 const Image = (props) => {
-  return <Img css={imageRules} src={props.imageUrl} alt={props.name} />
+  return <Img css={imageRules} src={`/candidate-images/${props.slug}.jpg`} alt={props.name} />
 }
 
 function Candidate(props) {
@@ -58,7 +58,7 @@ function Candidate(props) {
     <NavAnchor section={props.section} candidate={props.slug}>
       <Container css={containerRules}>
         <WavyBorder css={wavyBorderRules}>
-          {props.imageUrl ? <Image {...props} /> : null}
+          <Image {...props} />
           <CandidateHeader title={props.name} subtitle={`${props.positionTitle} Nominee`}/>
           <QA
             question="Please describe your involvement in East Bay DSA"
