@@ -25,7 +25,7 @@ function candidatesFromGS(position, candidatesData, nominationData) {
         goals: candidate["whatDoYouHopeToAccomplishForTheChapterIfElectedToThisRole?"],
         nominations: nominations,
       }
-    })
+    });
 }
 
 function delegatesFromGS(delegatesData, delegateNominationsData) {
