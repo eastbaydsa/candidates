@@ -8,7 +8,7 @@ function Candidate(props) {
     <Div>
       <QA
         question={props.name}
-        answer={props.involvement}
+        answer={props.reason}
       />
     </Div>
   );

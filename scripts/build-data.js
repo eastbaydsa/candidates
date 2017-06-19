@@ -42,6 +42,7 @@ function delegatesFromGS(delegatesData, delegateNominationsData) {
       return {
         name: delegate["what'sYourName?"],
         reason: delegate["whyDoYouWantToRepresentYourComradesAtTheDsaNationalConvention?"],
+        slug: candidateSlug(delegate["what'sYourName?"]),
         nominations: nominations,
       }
     })

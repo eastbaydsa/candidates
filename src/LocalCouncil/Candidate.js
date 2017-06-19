@@ -59,19 +59,8 @@ function Candidate(props) {
       <Container css={containerRules}>
         <WavyBorder css={wavyBorderRules}>
           <Image {...props} />
-          <CandidateHeader title={props.name} subtitle={`${props.positionTitle} Nominee`}/>
-          <QA
-            question="Please describe your involvement in East Bay DSA"
-            answer={props.involvement}
-          />
-          <QA
-            question="Why are you qualified for this specific role?"
-            answer={props.qualifications}
-          />
-          <QA
-            question="What do you hope to accomplish for the chapter if elected to this role?"
-            answer={props.goals}
-          />
+          <CandidateHeader invert={props.invertHeader} title={props.name} subtitle={`${props.positionTitle} Nominee`}/>
+          {props.questions.map(q => <QA question={q.question} answer={q.answer} key={q.question} /> )}
         </WavyBorder>
         {props.nominations.length > 0 ? <Nominations nominations={props.nominations}/> : null} 
       </Container>

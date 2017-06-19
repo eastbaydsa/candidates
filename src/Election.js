@@ -6,8 +6,8 @@ import TOC from './TOC.js';
 import LocalCouncilIntro from './LocalCouncil/Intro.js';
 import LocalCouncilPosition from './LocalCouncil/Position.js';
 
-// import NationalConventionIntro from './NationalConvention/Intro.js';
-// import NationalConventionCandidates from './NationalConvention/Candidates.js';
+import NationalConventionIntro from './NationalConvention/Intro.js';
+import NationalConventionCandidates from './NationalConvention/Candidates.js';
 
 import EventDetails from './shared/EventDetails.js';
 import ElectionRules from './shared/ElectionRules.js';
@@ -21,7 +21,7 @@ class Election extends Component {
       ...electionData.localCouncil.positions.map((position) => {
         return { label: position.title, to: `/${position.slug}` }
       }),
-      // { label: 'DSA National Convention Delegates', to: '/dsa-national-convention-delegates' },
+      { label: 'DSA National Convention Delegates', to: '/dsa-national-convention-delegates' },
       { label: 'Election Rules', to: '/election-rules' },
     ]
   }
@@ -38,8 +38,8 @@ class Election extends Component {
         {electionData.localCouncil.positions.map(position => {
           return <LocalCouncilPosition key={position.slug} {...position} />
         })}
-        {/*<NationalConventionIntro />*/}
-        {/*<NationalConventionCandidates candidates={electionData.nationalConvention.candidates} />*/}
+        <NationalConventionIntro />
+        <NationalConventionCandidates candidates={electionData.nationalConvention.candidates} />
         <EventDetails />
         <ElectionRules />
         <EventDetails />

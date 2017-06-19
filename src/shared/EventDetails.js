@@ -11,6 +11,8 @@ const containerRules = [{
   padding: '33px',
   color: 'white',
   alignSelf: 'stretch',
+  minHeight: '50vh',
+  justifyContent: 'center',
 }, tabletPortraitBreakpoint({
   padding:'100px 53px',
 })];

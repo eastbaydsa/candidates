@@ -12,6 +12,10 @@ import Index from '../shared/Index';
 
 import { tabletPortraitBreakpoint } from '../styles/breakpoints';
 
+const involvementQuestion = "Please describe your involvement in East Bay DSA";
+const qualifiedQuestion = "Why are you qualified for this specific role?";
+const accomplishQuestion = "What do you hope to accomplish for the chapter if elected to this role?";
+
 const wavyBorderRules = [{
   padding: '30px 20px',
 }, tabletPortraitBreakpoint({
@@ -56,7 +60,12 @@ function Position(props) {
         </Container>
       </NavAnchor>
       {props.candidates.map(candidate => {
-        return <Candidate key={candidate.name} section={props.slug} positionTitle={props.title} {...candidate} />
+        const questions = [
+          { question: involvementQuestion, answer: candidate.involvement },
+          { question: qualifiedQuestion, answer: candidate.qualifications },
+          { question: accomplishQuestion, answer: candidate.goals }
+        ];
+        return <Candidate key={candidate.name} section={props.slug} positionTitle={props.title} questions={questions} {...candidate} />
       })}
     </div>
   );

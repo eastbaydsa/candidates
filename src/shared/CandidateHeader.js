@@ -31,13 +31,17 @@ const subtitleRules = {
   letterSpacing: '0.5px',
 };
 
-function SectionHeader(props) {
+function CandidateHeader(props) {
+  const rules = Array(containerRules);
+  if (props.invert) {
+    rules.push({ filter: 'invert()' });
+  }
   return (
-    <Div css={containerRules}>
+    <Div css={rules}>
       <H4 css={titleRules}>{props.title}</H4>
       <H5 css={subtitleRules}>{props.subtitle}</H5>
     </Div>
   );
 }
 
-export default SectionHeader;
+export default CandidateHeader;
