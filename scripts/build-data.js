@@ -16,10 +16,13 @@ function candidatesFromGS(position, candidatesData, nominationData) {
             comment: nomination["optional:WhyDoYouThinkYourComradeIsRightForThisRole?"]
           }
         });
+      const name = candidate["firstAndLastName"];
+      const slug = candidateSlug(name);
 
       return {
-        name: candidate["firstAndLastName"],
-        slug: candidateSlug(candidate["firstAndLastName"]),
+        name,
+        slug,
+        imageUrl: `/candidate-images/${slug}.jpg`,
         involvement: candidate["pleaseDescribeYourInvolvementInEastBayDsa."],
         qualifications: candidate["whyAreYouQualifiedForThisSpecificRole?"],
         goals: candidate["whatDoYouHopeToAccomplishForTheChapterIfElectedToThisRole?"],
@@ -38,11 +41,14 @@ function delegatesFromGS(delegatesData, delegateNominationsData) {
             name: nomination["yourName"],
           }
         });
+      const name = delegate["what'sYourName?"];
+      const slug = candidateSlug(delegate["what'sYourName?"]);
 
       return {
-        name: delegate["what'sYourName?"],
+        name,
+        slug,
+        imageUrl: `/candidate-images/${slug}.jpg`,
         reason: delegate["whyDoYouWantToRepresentYourComradesAtTheDsaNationalConvention?"],
-        slug: candidateSlug(delegate["what'sYourName?"]),
         nominations: nominations,
       }
     })

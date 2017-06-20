@@ -50,7 +50,7 @@ const imageRules = [
 ];
 
 const Image = (props) => {
-  return <Img css={imageRules} src={`/candidate-images/${props.slug}.jpg`} alt={props.name} />
+  return <Img css={imageRules} src={props.imageUrl} alt={props.name} />
 }
 
 function Candidate(props) {
