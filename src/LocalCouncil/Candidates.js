@@ -14,7 +14,7 @@ function Candidates(props) {
       { question: accomplishQuestion, answer: candidate.goals }
     ];
 
-    return <Candidate key={candidate.name} section={props.slug} CandidatesTitle={props.title} questions={questions} {...candidate} />
+    return <Candidate key={candidate.name} section={props.slug} positionTitle={props.positionTitle} questions={questions} {...candidate} />
   });
 
   return <div>{candidates}</div>

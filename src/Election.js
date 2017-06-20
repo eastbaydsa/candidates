@@ -39,7 +39,7 @@ class Election extends Component {
           return (
             <div key={position.slug}>
               <LocalCouncilPosition {...position} />
-              <LocalCouncilCandidates candidates={position.candidates} />
+              <LocalCouncilCandidates candidates={position.candidates} positionTitle={position.title} />
             </div>
           );
         })}
