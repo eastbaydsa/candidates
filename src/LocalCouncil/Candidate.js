@@ -20,6 +20,7 @@ const wavyBorderRules = [
   {
     padding: '20px 20px 70px 20px',
     margin: '0 -20px',
+    minHeight: '280px',
   }, tabletPortraitBreakpoint({
     padding: '80px 200px 80px 80px',
     margin: 0,
